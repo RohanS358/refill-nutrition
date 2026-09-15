@@ -15,7 +15,7 @@ export default async function AdminLoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-ink-deep px-5 text-background">
       <div className="w-full max-w-sm">
-        <Logo />
+        <Logo onDark />
         <div className="mt-8 border border-line-dark p-8 md:p-10">
           <p className="text-eyebrow text-green-soft">Content studio</p>
           <h1 className="text-title mt-3 font-semibold">Sign in to edit the site.</h1>

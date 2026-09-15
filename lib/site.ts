@@ -5,6 +5,8 @@ export const site = {
   name: "Refill Enterprises",
   legalName: "Refill Enterprises Pvt. Ltd.",
   tagline: "Clinical nutrition, engineered.",
+  /** Brand line from the logo lockup — pairs with the mark, not a page headline. */
+  motto: "Supplementing your health",
   description:
     "Refill Enterprises Pvt. Ltd. is a Nepali nutraceutical company specializing in critical care nutrition, disease-specific metabolic formulations, and advanced medical devices — with a roadmap toward sports nutrition and domestic manufacturing.",
   founded: 2020,

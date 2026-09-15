@@ -71,7 +71,7 @@ export function Header() {
         )}
       >
         <div className="mx-auto flex h-16 max-w-[88rem] items-center justify-between px-5 md:h-20 md:px-12 lg:px-20">
-          <Logo />
+          <Logo onDark={darkTop} />
 
           <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
             {primaryNav.map((item) => (
@@ -133,7 +133,7 @@ export function Header() {
           className="fixed inset-0 z-[60] flex flex-col bg-ink-deep text-background lg:hidden"
         >
           <div className="flex h-16 items-center justify-between px-5 md:h-20 md:px-12">
-            <Logo />
+            <Logo onDark />
             <button
               ref={closeButtonRef}
               type="button"

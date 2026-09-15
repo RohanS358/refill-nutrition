@@ -37,8 +37,13 @@ export async function SectionHeading({
     : [eyebrow, title, lead];
 
   return (
-    <div className={cn("grid gap-6 lg:grid-cols-12", className)}>
-      <div className="lg:col-span-2">
+    <div
+      className={cn(
+        "grid gap-6 lg:grid-cols-[minmax(11rem,2fr)_10fr]",
+        className,
+      )}
+    >
+      <div>
         <Reveal>
           <div className="flex items-baseline gap-4">
             {index ? (
@@ -58,7 +63,7 @@ export async function SectionHeading({
           </div>
         </Reveal>
       </div>
-      <div className="lg:col-span-10">
+      <div>
         <Reveal delay={90}>
           <h2
             className="text-display max-w-4xl text-balance"

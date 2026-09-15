@@ -27,6 +27,7 @@ export async function Footer() {
           >
             REFILL
           </p>
+          <p className="text-eyebrow mt-4 text-green-soft">{site.motto}</p>
           <p className="text-eyebrow mt-6 text-paper-dim">
             {site.legalName} · Est. {site.founded} · {city}, {country}
           </p>

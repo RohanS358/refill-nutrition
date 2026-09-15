@@ -46,11 +46,22 @@ Visitors should immediately conclude:
 
 ## 5. Logo / wordmark
 
-There is no supplied logo asset. The wordmark is **REFILL** set in Plus Jakarta Sans
-ExtraBold, tracking −0.04em, with the qualifier **ENTERPRISES** in a spaced-uppercase
-micro label. The favicon is an abstract hexagonal "molecule R" (`public/icon.svg`).
-When a real logo exists, it replaces the wordmark component in `components/site/logo.tsx`
-in exactly one place.
+The supplied logo (`public/brand/logo.jpg`) is a horizontal lockup: a circular **R**
+monogram, a vertical rule, then **REFILL** over the tagline **SUPPLEMENTING YOUR HEALTH**.
+It is sliced at the rule into two assets, both served from `public/brand/`:
+
+| Asset | Use |
+|---|---|
+| `logo-full.png` | Header from `sm` up, admin sign-in — the default lockup |
+| `mark.png` | Phone header, and anywhere the lockup would be illegible |
+| `icon.svg` | Favicon — the circular R redrawn as vector so it holds at 16–32px |
+
+Both render through `components/site/logo.tsx` (`variant="full" | "mark"`), the single
+place the asset lands. On Deep Ink surfaces pass `onDark` to invert it to paper-white.
+
+**Tagline.** "Supplementing your health" is the brand line (`site.motto`) and belongs with
+the mark and in the footer. It is *not* the page-title tagline — that remains
+"Clinical nutrition, engineered." (`site.tagline`), which is also the homepage H1.
 
 ## 6. The one-accent rule
 
@@ -58,6 +69,12 @@ Refill Green (`#0E5F49`) is the only brand accent on clinical pages.
 Pulse Lime (`#D7F94E`) exists **only** in the sports-nutrition context (preview section,
 sports page) to signal the future consumer-facing energy of the brand. The two never
 appear side by side at equal weight. See `color-system.md`.
+
+**Logo blue is not an accent.** The supplied logo is blue (`--brand-blue: #2B3B88`,
+deep end `#242E69`). It is deliberately *not* recolored to Refill Green — the mark
+differentiates itself from the page. The blue is therefore reserved to the logo asset
+alone: it never becomes a button, link, heading, or surface color. The one-accent rule
+above is unchanged for everything that is not the mark.
 
 ## 7. Relationship to the design ecosystem
 

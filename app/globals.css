@@ -42,6 +42,8 @@
   --paper-dim: #A8B4AA;           /* secondary text on dark */
   --pulse: #D7F94E;               /* sports-nutrition only (D-009) */
   --green-soft: #7FB8A4;          /* Refill Green lifted for dark surfaces */
+  --brand-blue: #2B3B88;          /* logo blue — identity mark only, not an accent */
+  --brand-blue-deep: #242E69;     /* logo gradient dark end */
 
   --sidebar: #0B1712;
   --sidebar-foreground: #F7F6F2;
@@ -101,6 +103,8 @@
   --color-paper-dim: var(--paper-dim);
   --color-pulse: var(--pulse);
   --color-green-soft: var(--green-soft);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-deep: var(--brand-blue-deep);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
