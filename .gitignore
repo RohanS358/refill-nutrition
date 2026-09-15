@@ -19,6 +19,9 @@ yarn-error.log*
 # env files
 .env*
 
+# CMS runtime state — written by the admin editor, not source
+/data/content.json
+
 # vercel
 .vercel
 
