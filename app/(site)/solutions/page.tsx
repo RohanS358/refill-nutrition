@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/site/cta-band";
 import { Reveal, Draw } from "@/components/motion/reveal";
 import { Pathway } from "@/components/gfx/pathway";
 import { collection } from "@/lib/cms/content";
-import { solutions as defaultSolutions } from "@/lib/solutions";
+import { solutions as defaultSolutions, protocolSteps } from "@/lib/solutions";
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -29,7 +29,10 @@ export default async function SolutionsPage() {
 
       <Section>
         <Draw>
-          <Pathway className="max-h-72 w-full text-primary" />
+          <Pathway
+            stages={protocolSteps.map((s) => s.title)}
+            className="max-h-72 w-full text-primary"
+          />
         </Draw>
         <p className="text-data mt-6 text-muted-foreground">
           Fig. 01 — The clinical nutrition pathway, screen to recovery.

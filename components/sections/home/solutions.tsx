@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal, Draw } from "@/components/motion/reveal";
 import { Pathway } from "@/components/gfx/pathway";
 import { collection } from "@/lib/cms/content";
-import { solutions as defaultSolutions } from "@/lib/solutions";
+import { solutions as defaultSolutions, protocolSteps } from "@/lib/solutions";
 
 /** Chapter 05 — sticky rail + scrolling solution panels. */
 export async function Solutions() {
@@ -25,7 +25,10 @@ export async function Solutions() {
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
             <Draw>
-              <Pathway className="text-primary" />
+              <Pathway
+                stages={protocolSteps.map((s) => s.title)}
+                className="text-primary"
+              />
             </Draw>
             <p className="text-data mt-6 text-muted-foreground">
               Fig. 01 — The clinical nutrition pathway, screen to recovery.

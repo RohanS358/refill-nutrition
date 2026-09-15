@@ -6,8 +6,13 @@ Target: WCAG 2.2 AA.
 - Landmarks: `header` (banner), `nav` with `aria-label`, `main`, `footer`
   (contentinfo). One `h1` per page; sections use `h2`, sub-blocks `h3`.
 - Skip link ("Skip to content") is the first focusable element, visible on focus.
-- Section indices ("01") and decorative data are `aria-hidden`; SVG graphics are
-  `aria-hidden focusable="false"`; informational stats pair number + visible label.
+- Section indices ("01") and decorative data are `aria-hidden`; informational stats
+  pair number + visible label.
+- SVG graphics split two ways. **Decorative** ones (texture, ornament — `dot-lattice`,
+  `hex-ring`) stay `aria-hidden focusable="false"`. **Informational** ones that carry
+  labels or convey a sequence (`pathway`, `blueprint`) are content: they take
+  `role="img" focusable="false"` and a `<title>` naming what they show, and must not be
+  `aria-hidden` — that would hide real content from assistive tech.
 
 ## Keyboard
 - Everything interactive is a `button`/`a` — no clickable divs.
