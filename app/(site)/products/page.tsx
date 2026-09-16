@@ -8,11 +8,14 @@ import { ProductMarquee } from "@/components/site/product-marquee";
 import { collection } from "@/lib/cms/content";
 import { T } from "@/components/cms/t";
 import { productFamilies, ranges as rangeDefaults } from "@/lib/products";
+import { productSchema, breadcrumbSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/site/json-ld";
 
 export const metadata: Metadata = {
   title: "Products",
+  alternates: { canonical: "/products" },
   description:
-    "The Refill clinical catalogue — the progain enteral range, re-pro daily protein, Calcinine, Recal-M, Cardivit and Recure supplementation, and BAITONG enteral delivery devices.",
+    "Eleven clinical products: the progain enteral range, re-pro daily protein, Calcinine, Recal-M, Cardivit, Recure and BAITONG enteral delivery sets.",
 };
 
 export default async function ProductsPage() {
@@ -21,6 +24,15 @@ export default async function ProductsPage() {
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Products", path: "/products" },
+          ]),
+          ...families.map(productSchema),
+        ]}
+      />
       <PageHero
         ck="products.hero"
         eyebrow="Products"

@@ -12,9 +12,10 @@ import { site } from "@/lib/site";
 import { statistics } from "@/lib/timeline";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
-    "Refill Enterprises Pvt. Ltd. — a Nepali nutraceutical company (est. 2020) dedicated to critical care nutrition, disease-specific metabolic formulations, and better patient outcomes.",
+    "Refill Enterprises Pvt. Ltd. — a Nepali nutraceutical company, est. 2020, dedicated to critical care nutrition and better patient outcomes.",
 };
 
 const missionPoints = [
@@ -23,7 +24,7 @@ const missionPoints = [
   "Support healthcare professionals with innovative products.",
   "Introduce advanced medical devices and applications.",
   "Build local manufacturing capability in Nepal.",
-  "Expand into sports nutrition.",
+  "Deepen the clinical catalogue across specialities.",
 ];
 
 const values = [
@@ -82,7 +83,7 @@ export default async function AboutPage() {
                   Beyond nutraceuticals, we introduce BAITONG ENFit-standard enteral delivery systems used exclusively in critical care nutrition — bridging the gap between modern healthcare technology and patient-centered nutritional care through strategic partnerships.
                 </T>
                 <T k="about.story.p3" as="p">
-                  Next: a sports nutrition portfolio built on the same clinical foundation, and — as our long-term commitment — a state-of-the-art manufacturing facility in Nepal that strengthens domestic healthcare capability, quality assurance, self-reliance, and employment.
+                  Next, as our long-term commitment: a state-of-the-art manufacturing facility in Nepal that strengthens domestic healthcare capability, quality assurance, self-reliance, and employment.
                 </T>
               </div>
             </Reveal>

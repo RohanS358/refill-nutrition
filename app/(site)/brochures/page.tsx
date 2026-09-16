@@ -8,6 +8,7 @@ import { brochures as brochureDefaults } from "@/lib/brochures";
 import { collection } from "@/lib/cms/content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/brochures" },
   title: "Brochures",
   description:
     "The printed Refill product literature — product spreads and clinical evidence decks for the progain range, supplementation line and enteral devices.",

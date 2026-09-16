@@ -11,6 +11,7 @@ import { productFamilies } from "@/lib/products";
 import { T } from "@/components/cms/t";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/solutions/medical-devices" },
   title: "Medical Devices & Applications",
   description:
     "Advanced medical devices and healthcare applications used exclusively in critical care nutrition and patient management, introduced through strategic partnerships.",

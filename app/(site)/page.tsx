@@ -8,7 +8,6 @@ import { Evidence } from "@/components/sections/home/evidence";
 import { Timeline } from "@/components/sections/home/timeline";
 import { Research } from "@/components/sections/home/research";
 import { Manufacturing } from "@/components/sections/home/manufacturing";
-import { SportsPreview } from "@/components/sections/home/sports-preview";
 import { Team } from "@/components/sections/home/team";
 import { Stats } from "@/components/sections/home/stats";
 import { CtaBand } from "@/components/site/cta-band";
@@ -41,7 +40,6 @@ export default async function Home() {
       <Timeline />
       <Research />
       <Manufacturing />
-      <SportsPreview />
       <Team />
       <Stats />
       <CtaBand />

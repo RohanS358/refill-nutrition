@@ -12,7 +12,7 @@ export const heroDefaults = {
     { label: "Specialty", value: "Clinical & critical care nutrition" },
     { label: "Portfolio", value: "11 products · 4 ranges" },
     { label: "Technology", value: "ENFit enteral delivery" },
-    { label: "Next", value: "Sports nutrition · Manufacturing" },
+    { label: "Next", value: "Domestic manufacturing" },
   ],
 };
 

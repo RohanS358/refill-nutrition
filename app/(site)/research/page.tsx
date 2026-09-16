@@ -8,6 +8,7 @@ import { Helix } from "@/components/gfx/helix";
 import { T } from "@/components/cms/t";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/research" },
   title: "Research & Innovation",
   description:
     "Our research philosophy: evidence before everything, disease-specific by default, clinician-aligned, and measured in outcomes.",

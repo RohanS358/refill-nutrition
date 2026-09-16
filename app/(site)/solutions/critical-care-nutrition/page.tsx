@@ -14,6 +14,7 @@ import { T } from "@/components/cms/t";
 import { collection } from "@/lib/cms/content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/solutions/critical-care-nutrition" },
   title: "Critical Care Nutrition",
   description:
     "Nutritional therapy engineered for intensive care: assessment-led, disease-specific formulations supporting recovery when metabolic demands are most extreme.",

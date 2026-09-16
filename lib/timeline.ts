@@ -35,8 +35,8 @@ export const milestones: Milestone[] = [
   },
   {
     year: "Now",
-    title: "Sports nutrition in development",
-    body: "A performance, recovery, and active-lifestyle portfolio being engineered on the same clinical foundation.",
+    title: "Deepening the clinical catalogue",
+    body: "Eleven products across enteral nutrition, daily protein, supplementation and enteral delivery — supplied to hospitals and prescribing clinicians across Nepal.",
     state: "now",
   },
   {

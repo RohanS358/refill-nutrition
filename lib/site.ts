@@ -8,15 +8,19 @@ export const site = {
   /** Brand line from the logo lockup — pairs with the mark, not a page headline. */
   motto: "Supplementing your health",
   description:
-    "Refill Enterprises Pvt. Ltd. is a Nepali nutraceutical company specialising in critical care nutrition — the progain enteral range, re-pro daily protein, Calcinine, Recal-M, Cardivit and Recure supplementation, and BAITONG ENFit enteral delivery devices.",
+    "Nepali clinical nutrition company: the progain enteral range for ICU, renal, diabetic and paediatric care, plus supplementation and ENFit enteral delivery.",
   founded: 2020,
   country: "Nepal",
   city: "Kathmandu",
+  /** Street address as printed on the brochure back cover. */
+  address: "Dillibazar, Kathmandu, Nepal",
   coordinates: "27.7172° N, 85.3240° E",
-  // TODO(content): confirm final production domain and contact details.
+  /** Exim code printed on the literature — used in the org schema. */
+  eximCode: "6098774290146NP",
+  // TODO(content): confirm the production domain before launch.
   url: "https://refillenterprises.com",
-  email: "info@refillenterprises.com",
-  phone: "+977-1-XXXXXXX",
+  email: "refillenterprises@gmail.com",
+  phone: "+977-1-5918273",
 } as const;
 
 export type NavItem = {
@@ -44,13 +48,12 @@ export const fullNav: NavItem[] = [
   { label: "Solutions", href: "/solutions", hint: "Nutrition · Devices" },
   { label: "Research", href: "/research", hint: "Evidence philosophy" },
   { label: "Manufacturing", href: "/manufacturing", hint: "The facility vision" },
-  { label: "Sports Nutrition", href: "/sports-nutrition", hint: "Coming soon" },
   { label: "Careers", href: "/careers", hint: "Join the work" },
   { label: "Contact", href: "/contact", hint: "Kathmandu, Nepal" },
 ];
 
 /** Routes that open with a Deep Ink hero — the header inverts on them until scrolled. */
-export const darkHeroRoutes = ["/", "/research", "/sports-nutrition"];
+export const darkHeroRoutes = ["/", "/research"];
 
 export const footerColumns: { heading: string; items: NavItem[] }[] = [
   {
@@ -70,7 +73,6 @@ export const footerColumns: { heading: string; items: NavItem[] }[] = [
       { label: "Brochures", href: "/brochures" },
       { label: "Critical Care Nutrition", href: "/solutions/critical-care-nutrition" },
       { label: "Medical Devices", href: "/solutions/medical-devices" },
-      { label: "Sports Nutrition", href: "/sports-nutrition" },
     ],
   },
 ];

@@ -9,6 +9,7 @@ import { text } from "@/lib/cms/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description:
     "Contact Refill Enterprises Pvt. Ltd. — hospitals, clinicians, distributors, and partners. Kathmandu, Nepal.",

@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/solutions/medical-devices",
     "/research",
     "/manufacturing",
-    "/sports-nutrition",
     "/careers",
     "/contact",
   ];

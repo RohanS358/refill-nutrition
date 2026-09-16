@@ -10,9 +10,10 @@ import { T } from "@/components/cms/t";
 import { text } from "@/lib/cms/content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/manufacturing" },
   title: "Manufacturing Vision",
   description:
-    "Refill Enterprises' long-term commitment: a state-of-the-art nutraceutical manufacturing facility in Nepal — quality assurance, self-reliance, employment, and industry growth.",
+    "Our long-term commitment: a nutraceutical manufacturing facility in Nepal for quality assurance, self-reliance, employment and industry growth.",
 };
 
 const pillars = [

@@ -10,6 +10,7 @@ import { text } from "@/lib/cms/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/careers" },
   title: "Careers",
   description:
     "Join Refill Enterprises — help build Nepal's clinical nutrition and future manufacturing capability.",
@@ -30,7 +31,6 @@ const principles = [
   },
 ];
 
-// TODO(content): replace with live openings when roles are published.
 const disciplines = [
   {
     index: "01",

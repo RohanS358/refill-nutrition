@@ -10,6 +10,7 @@ import { collection } from "@/lib/cms/content";
 import { solutions as defaultSolutions, protocolSteps } from "@/lib/solutions";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/solutions" },
   title: "Solutions",
   description:
     "Two solution areas, one pathway: critical care nutrition and the medical devices & healthcare applications that deliver it.",
