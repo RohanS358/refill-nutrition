@@ -34,7 +34,7 @@ export function ProductLineup({ products }: { products: ProductFamily[] }) {
   return (
     <div>
       <div
-        className="flex items-end justify-start overflow-x-auto pb-2 md:justify-center md:overflow-visible"
+        className="flex w-full items-end justify-center pt-6"
         onPointerLeave={() => setHovered(null)}
       >
         {arranged.map((p, i) => {
@@ -56,7 +56,7 @@ export function ProductLineup({ products }: { products: ProductFamily[] }) {
               onPointerEnter={() => setHovered(p.id)}
               // Shorter packs stack in front; the hovered one comes to the top.
               style={{ zIndex: active ? 40 : Math.round((1 - scale) * 20) + 1 }}
-              className="group relative -mx-1 shrink-0 sm:-mx-1.5 md:-mx-2"
+              className="group relative min-w-0 flex-1"
             >
               <Link
                 href={`/products#${p.id}`}
@@ -65,19 +65,19 @@ export function ProductLineup({ products }: { products: ProductFamily[] }) {
                 aria-label={`${p.name} — ${p.category}`}
                 className="block focus-visible:outline-2 focus-visible:outline-offset-4"
               >
-                <span className="flex h-[120px] w-[74px] items-end justify-center sm:h-[160px] sm:w-[92px] md:h-[200px] md:w-[104px] lg:h-[240px] lg:w-[118px]">
+                <span className="flex h-[clamp(150px,20vw,460px)] items-end justify-center">
                   <Image
                     src={p.image!}
                     alt={p.name}
-                    width={260}
-                    height={330}
-                    sizes="(max-width: 640px) 32vw, (max-width: 1024px) 20vw, 190px"
+                    width={520}
+                    height={660}
+                    sizes="(max-width: 640px) 34vw, (max-width: 1024px) 26vw, 420px"
                     // scale equalises packs cropped at different aspect
                     // ratios, so the group reads as one photograph.
                     style={{ maxHeight: `${scale * 100}%` }}
                     className={cn(
-                      "pack-shot w-auto origin-bottom object-contain transition-all duration-500",
-                      active && "-translate-y-3 scale-[1.06]",
+                      "pack-shot w-auto max-w-[112%] origin-bottom object-contain transition-all duration-500",
+                      active && "-translate-y-4 scale-[1.05]",
                       dimmed ? "opacity-30 saturate-50" : "opacity-100",
                     )}
                   />

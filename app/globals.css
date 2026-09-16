@@ -267,23 +267,30 @@
 /* ------------------------------------------------------------------
    Page shell — one place that decides how wide the site runs and how
    much gutter it keeps. Large screens get more content, not more margin.
+   The gutter is a plain custom property (not inside @utility, which does
+   not emit one) so `.bleed` can mirror it exactly.
 ------------------------------------------------------------------- */
 
-@utility shell {
+:root {
+  --shell-gutter: 1.25rem;        /* 20px on phones */
+}
+@media (min-width: 768px)  { :root { --shell-gutter: 3rem; } }
+@media (min-width: 1024px) { :root { --shell-gutter: 4rem; } }
+@media (min-width: 1536px) { :root { --shell-gutter: 5.5rem; } }
+
+.shell {
   margin-inline: auto;
   width: 100%;
   max-width: 120rem;              /* 1920px — fills a large desktop */
-  padding-inline: 1.25rem;        /* 20px on phones */
+  padding-inline: var(--shell-gutter);
 }
 
-@media (min-width: 768px) {
-  .shell { padding-inline: 3rem; }
-}
-@media (min-width: 1024px) {
-  .shell { padding-inline: 4rem; }
-}
-@media (min-width: 1536px) {
-  .shell { padding-inline: 5.5rem; }
+/**
+ * Breaks an element out of the shell's gutters so it runs edge to edge.
+ * Mirrors the gutter exactly, so it can never cause overflow.
+ */
+.bleed {
+  margin-inline: calc(var(--shell-gutter) * -1);
 }
 
 /* ------------------------------------------------------------------

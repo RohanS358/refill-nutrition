@@ -36,8 +36,12 @@ export async function FeaturedProducts() {
         </ul>
       </Reveal>
 
+      {/* Full-bleed: the shelf breaks the shell gutters so the packs run
+          edge to edge — products are the page's headline act. */}
       <Reveal delay={90} className="mt-16 md:mt-20">
-        <ProductLineup products={families} />
+        <div className="bleed">
+          <ProductLineup products={families} />
+        </div>
       </Reveal>
 
       <Reveal delay={180}>
