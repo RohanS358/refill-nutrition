@@ -8,7 +8,7 @@ export const site = {
   /** Brand line from the logo lockup — pairs with the mark, not a page headline. */
   motto: "Supplementing your health",
   description:
-    "Refill Enterprises Pvt. Ltd. is a Nepali nutraceutical company specializing in critical care nutrition, disease-specific metabolic formulations, and advanced medical devices — with a roadmap toward sports nutrition and domestic manufacturing.",
+    "Refill Enterprises Pvt. Ltd. is a Nepali nutraceutical company specialising in critical care nutrition — the progain enteral range, re-pro daily protein, Calcinine, Recal-M, Cardivit and Recure supplementation, and BAITONG ENFit enteral delivery devices.",
   founded: 2020,
   country: "Nepal",
   city: "Kathmandu",
@@ -29,6 +29,7 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
+  { label: "Brochures", href: "/brochures" },
   { label: "Solutions", href: "/solutions" },
   { label: "Research", href: "/research" },
   { label: "Manufacturing", href: "/manufacturing" },
@@ -38,7 +39,8 @@ export const primaryNav: NavItem[] = [
 export const fullNav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about", hint: "Vision · Mission · Values" },
-  { label: "Products", href: "/products", hint: "Four clinical families" },
+  { label: "Products", href: "/products", hint: "Eleven products, four ranges" },
+  { label: "Brochures", href: "/brochures", hint: "The printed literature" },
   { label: "Solutions", href: "/solutions", hint: "Nutrition · Devices" },
   { label: "Research", href: "/research", hint: "Evidence philosophy" },
   { label: "Manufacturing", href: "/manufacturing", hint: "The facility vision" },
@@ -65,6 +67,7 @@ export const footerColumns: { heading: string; items: NavItem[] }[] = [
     heading: "Portfolio",
     items: [
       { label: "Products", href: "/products" },
+      { label: "Brochures", href: "/brochures" },
       { label: "Critical Care Nutrition", href: "/solutions/critical-care-nutrition" },
       { label: "Medical Devices", href: "/solutions/medical-devices" },
       { label: "Sports Nutrition", href: "/sports-nutrition" },

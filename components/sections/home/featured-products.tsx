@@ -1,13 +1,11 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/site/section";
 import { SectionHeading } from "@/components/site/section-heading";
-import { ProductCard } from "@/components/site/product-card";
+import { ProductCarousel, CarouselLink } from "@/components/site/product-carousel";
 import { Reveal } from "@/components/motion/reveal";
 import { collection } from "@/lib/cms/content";
-import { productFamilies } from "@/lib/products";
+import { productFamilies, ranges } from "@/lib/products";
 
-/** Chapter 04 — the clinical families in a hairline grid. */
+/** Chapter 04 — the catalogue as a draggable pack-shot carousel. */
 export async function FeaturedProducts() {
   const families = await collection("products", productFamilies);
 
@@ -17,31 +15,34 @@ export async function FeaturedProducts() {
         <SectionHeading
           index="04"
           ck="home.products"
-          eyebrow="Featured products"
-          title="Four families of clinical formulation."
+          eyebrow="The catalogue"
+          title="Eleven products. Four ranges."
           className="flex-1 basis-full lg:basis-auto"
         />
       </div>
-      <div className="mt-16 grid grid-cols-1 gap-px border border-border bg-border md:mt-24 md:grid-cols-2 xl:grid-cols-4">
-        {families.map((family, i) => (
-          <Reveal key={family.id} delay={i * 90} className="flex">
-            <ProductCard family={family} ci={i} className="w-full" />
-          </Reveal>
-        ))}
-      </div>
+
+      <Reveal>
+        <ul className="mt-12 flex flex-wrap gap-x-10 gap-y-3 border-y border-border py-5">
+          {ranges.map((r) => (
+            <li key={r.id} className="text-eyebrow text-muted-foreground">
+              <span className="text-primary">{r.index}</span>{" "}
+              <a href={`/products#${r.id}`} className="transition-colors hover:text-foreground">
+                {r.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <Reveal delay={90} className="mt-16 md:mt-20">
+        <ProductCarousel products={families} />
+      </Reveal>
+
       <Reveal delay={180}>
-        <Link
-          href="/products"
-          className="group text-eyebrow mt-10 inline-flex items-center gap-2 text-primary"
-        >
-          Full product overview
-          <ArrowUpRight
-            size={16}
-            strokeWidth={1.5}
-            aria-hidden="true"
-            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          />
-        </Link>
+        <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+          <CarouselLink href="/products">Full product overview</CarouselLink>
+          <CarouselLink href="/brochures">Read the brochures</CarouselLink>
+        </div>
       </Reveal>
     </Section>
   );

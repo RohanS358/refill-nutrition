@@ -18,19 +18,19 @@ export const milestones: Milestone[] = [
   {
     year: "2021",
     title: "Critical care portfolio",
-    body: "First clinical nutrition range reaches healthcare professionals — calcium, amino acid, and Omega-3 formulations.",
+    body: "The progain enteral range reaches healthcare professionals — high-protein whey, low-protein renal and diabetic formulations.",
     state: "done",
   },
   {
     year: "2022",
     title: "Disease-specific formulations",
-    body: "Portfolio deepens into metabolic nutrition for renal, hepatic, and glycaemic states.",
+    body: "Portfolio deepens into hydrolysed peptide, paediatric and supplementation lines — Calcinine, Recal-M, Cardivit and Recure.",
     state: "done",
   },
   {
     year: "2023",
     title: "Medical devices & applications",
-    body: "Strategic partnerships introduce devices and digital tools for critical-care nutrition management.",
+    body: "BAITONG ENFit-standard enteral delivery systems introduced through strategic partnership.",
     state: "done",
   },
   {
@@ -50,9 +50,9 @@ export const milestones: Milestone[] = [
 /** Company statistics — home chapter 10. Honest numbers only. */
 export const statistics = [
   { value: 2020, label: "Established", format: "year" as const },
-  { value: 4, label: "Clinical product families", suffix: "" },
+  { value: 11, label: "Products in the catalogue", suffix: "" },
+  { value: 4, label: "Clinical ranges", suffix: "" },
   { value: 6, label: "Domains of expertise", suffix: "" },
-  { value: 2, label: "Solution areas", suffix: "" },
   { value: 1, label: "Planned manufacturing facility", suffix: "" },
   { value: 100, label: "Commitment to evidence", suffix: "%" },
 ];

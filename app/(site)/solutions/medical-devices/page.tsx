@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { SectionHeading } from "@/components/site/section-heading";
 import { CtaBand } from "@/components/site/cta-band";
 import { Reveal } from "@/components/motion/reveal";
 import { deviceCapabilities } from "@/lib/solutions";
+import { Parallax } from "@/components/motion/parallax";
+import { productFamilies } from "@/lib/products";
 import { T } from "@/components/cms/t";
 
 export const metadata: Metadata = {
@@ -14,6 +17,8 @@ export const metadata: Metadata = {
 };
 
 export default function MedicalDevicesPage() {
+  const device = productFamilies.find((p) => p.id === "gravity-set-bag");
+
   return (
     <>
       <PageHero
@@ -59,6 +64,50 @@ export default function MedicalDevicesPage() {
           ))}
         </div>
       </Section>
+
+      {device ? (
+        <Section id="gravity-set-bag">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <Parallax distance={24}>
+                  <Image
+                    src={device.image!}
+                    alt={device.name}
+                    width={520}
+                    height={520}
+                    sizes="(max-width: 1024px) 70vw, 420px"
+                    className="h-[280px] w-auto object-contain object-left md:h-[380px]"
+                  />
+                </Parallax>
+              </Reveal>
+            </div>
+            <div className="lg:col-span-7">
+              <Reveal delay={90}>
+                <p className="text-eyebrow text-primary">{device.category}</p>
+                <h2 className="text-display mt-4 text-[clamp(1.9rem,3.4vw,3rem)]">
+                  {device.name}
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground italic">{device.strapline}</p>
+                <p className="text-lead mt-8 max-w-2xl text-muted-foreground">{device.detail}</p>
+              </Reveal>
+              <Reveal delay={180}>
+                <dl className="mt-12 border-t border-border">
+                  {device.compounds.map((c) => (
+                    <div
+                      key={c.label}
+                      className="grid grid-cols-2 gap-6 border-b border-border py-4"
+                    >
+                      <dt className="text-data font-semibold">{c.label}</dt>
+                      <dd className="text-data text-right text-muted-foreground">{c.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </Reveal>
+            </div>
+          </div>
+        </Section>
+      ) : null}
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-12">

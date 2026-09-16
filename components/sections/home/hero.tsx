@@ -10,11 +10,12 @@ import { site } from "@/lib/site";
 
 const tickerItems = [
   "Critical Care Nutrition",
-  "Ca 40.078 u",
-  "Amino Acid Formulations",
-  "Omega-3 · EPA / DHA",
-  "Disease-Specific Metabolic Nutrition",
-  "Medical Devices",
+  "100% Whey · 42% Protein",
+  "Renal · Low Protein",
+  "Diabetic · Low GI",
+  "Hydrolysed Peptide",
+  "Paediatric Nutrition",
+  "ENFit Enteral Delivery",
   `Est. ${site.founded} — ${site.city}`,
   "Evidence-Based",
 ] as const;

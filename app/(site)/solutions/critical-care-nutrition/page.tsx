@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
@@ -19,7 +20,12 @@ export const metadata: Metadata = {
 };
 
 export default async function CriticalCareNutritionPage() {
-  const families = await collection("products", productFamilies);
+  const all = await collection("products", productFamilies);
+  // The ICU-facing subset — the enteral range plus the antioxidant adjunct.
+  const ccIds = ["progain-hp", "progain-peptide", "progain-dm", "progain-lp", "cardivit", "gravity-set-bag"];
+  const families = ccIds
+    .map((id) => all.find((f) => f.id === id))
+    .filter((f): f is NonNullable<typeof f> => Boolean(f));
 
   return (
     <>
@@ -77,13 +83,26 @@ export default async function CriticalCareNutritionPage() {
           title="What the protocol draws on."
         />
         <div className="mt-16 border-t border-border">
-          {families.map((family, i) => (
+          {families.map((family) => {
+            const i = all.findIndex((f) => f.id === family.id);
+            return (
             <Reveal key={family.id}>
               <Link
                 href={`/products#${family.id}`}
                 className="group flex items-center gap-6 border-b border-border py-6 transition-colors hover:bg-card md:gap-10 md:py-8"
               >
-                <Molecule variant={family.molecule} className="h-12 w-12 shrink-0 text-primary" />
+                {family.image ? (
+                  <Image
+                    src={family.image}
+                    alt=""
+                    width={64}
+                    height={80}
+                    sizes="64px"
+                    className="h-16 w-auto shrink-0 object-contain transition-transform duration-500 group-hover:-translate-y-1"
+                  />
+                ) : (
+                  <Molecule variant={family.molecule} className="h-12 w-12 shrink-0 text-primary" />
+                )}
                 <span className="text-title flex-1" data-cms={`col:products.${i}.name`}>
                   {family.name}
                 </span>
@@ -101,7 +120,8 @@ export default async function CriticalCareNutritionPage() {
                 />
               </Link>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
       </Section>
 

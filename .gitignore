@@ -32,3 +32,10 @@ next-env.d.ts
 # local deploy assembly (built artifact, not source)
 /build-out/
 /refill-cpanel-deploy.zip
+
+# Print source artwork (Illustrator files + 300dpi exports, ~233MB).
+# Web-ready derivatives are committed: public/products + public/brochures.
+/public/images/*.ai
+/public/images/*.psd
+/public/images/*.png
+!/public/images/background.png

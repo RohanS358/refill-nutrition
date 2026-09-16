@@ -27,7 +27,7 @@ export const solutions: Solution[] = [
       },
       {
         title: "Disease-specific",
-        body: "Renal, hepatic, glycaemic, and oncology-adjacent profiles instead of one-size-fits-all feeding.",
+        body: "progain-lp for renal, progain-dm for glycaemic control, progain-hp and peptide for hypercatabolic states — instead of one-size-fits-all feeding.",
       },
       {
         title: "Recovery-oriented",
@@ -42,11 +42,11 @@ export const solutions: Solution[] = [
     title: "Medical Devices & Applications",
     eyebrow: "Healthcare technology",
     summary:
-      "Advanced devices and healthcare applications used exclusively in critical-care nutrition and patient management, introduced through strategic partnerships.",
+      "BAITONG ENFit-standard enteral delivery systems — continuous feeding sets engineered so a feeding line cannot be connected to an IV, introduced through strategic partnership.",
     points: [
       {
         title: "Delivery systems",
-        body: "Devices supporting precise, controlled nutritional delivery in critical-care settings.",
+        body: "1.2/1.5 litre gravity sets with roller-clamp drip control, closable funnel and dedicated medication port.",
       },
       {
         title: "Monitoring & management",
@@ -69,22 +69,22 @@ export const protocolSteps = [
   { step: "05", title: "Monitor", body: "Outcomes tracked; formulation adjusted as the patient recovers." },
 ] as const;
 
-/** Device capability grid for the medical-devices page. */
+/** Device capability grid for the medical-devices page — BAITONG gravity set. */
 export const deviceCapabilities = [
   {
-    title: "Enteral delivery",
-    body: "Controlled-rate delivery systems for critical-care feeding protocols.",
+    title: "Continuous enteral feeding",
+    body: "Gravity-driven delivery over a controlled drip rate — the feeding pattern ESPEN and ASPEN guidelines confirm, improving nutrient absorption and reducing vomiting, aspiration and diarrhoea.",
   },
   {
-    title: "Patient monitoring",
-    body: "Applications that surface nutritional status alongside clinical vitals.",
+    title: "ENFit misconnection safety",
+    body: "Enteral misconnections can result in life-threatening events. The ENFit connector geometry physically eliminates Luer misconnection with IV lines.",
   },
   {
-    title: "Protocol support",
-    body: "Digital tools that help teams standardize nutrition therapy across units.",
+    title: "Ward-ready handling",
+    body: "Closable funnel, 1.2/1.5 litre bag, extra medication port and roller clamp — preferred by nurses and paramedical staff.",
   },
   {
-    title: "Data & accountability",
-    body: "Measurable therapy: intake, tolerance, and outcomes recorded by default.",
+    title: "Infection control",
+    body: "A closed, single-use delivery path that reduces bacterial translocation compared with open feeding.",
   },
 ] as const;

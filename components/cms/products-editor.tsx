@@ -15,6 +15,7 @@ const emptyFamily = (): ProductFamily => ({
   name: "",
   category: "",
   molecule: "metabolic",
+  range: "enteral",
   summary: "",
   detail: "",
   compounds: [{ label: "", value: "" }],

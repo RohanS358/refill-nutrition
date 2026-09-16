@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/products",
+    "/brochures",
     "/solutions",
     "/solutions/critical-care-nutrition",
     "/solutions/medical-devices",
