@@ -28,3 +28,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local deploy assembly (built artifact, not source)
+/build-out/
+/refill-cpanel-deploy.zip
