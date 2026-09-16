@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { site } from "@/lib/site";
+import { site, contactList } from "@/lib/site";
 
 type Field = "name" | "organization" | "email" | "message";
 
@@ -39,8 +39,14 @@ export function ContactForm() {
     const body = encodeURIComponent(
       `Name: ${values.name}\nOrganization: ${values.organization || "—"}\nEmail: ${values.email}\n\n${values.message}`,
     );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setStatus("Your email app should open with the message prepared. If not, write to us directly at " + site.email + ".");
+    // mailto takes a comma-separated recipient list natively.
+    const recipients = contactList(site.email);
+    window.location.href = `mailto:${recipients.join(",")}?subject=${subject}&body=${body}`;
+    setStatus(
+      "Your email app should open with the message prepared. If not, write to us directly at " +
+        recipients.join(" or ") +
+        ".",
+    );
   };
 
   const inputClass =

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site, footerColumns } from "@/lib/site";
+import { site, footerColumns, contactList } from "@/lib/site";
 import { text } from "@/lib/cms/content";
 
 /** Deep Ink mega-footer: giant wordmark, sitemap, coordinates. */
@@ -42,14 +42,16 @@ export async function Footer() {
             <address className="text-data mt-8 space-y-2 not-italic text-paper-dim">
               <p>{city}, {country}</p>
               <p data-cms="site.coordinates">{coordinates}</p>
-              <p>
-                <a
-                  href={`mailto:${email}`}
-                  className="underline decoration-line-dark underline-offset-4 transition-colors hover:text-background hover:decoration-green-soft"
-                >
-                  {email}
-                </a>
-              </p>
+              {contactList(email).map((address) => (
+                <p key={address}>
+                  <a
+                    href={`mailto:${address}`}
+                    className="underline decoration-line-dark underline-offset-4 transition-colors hover:text-background hover:decoration-green-soft"
+                  >
+                    {address}
+                  </a>
+                </p>
+              ))}
             </address>
           </div>
           {footerColumns.map((col) => (

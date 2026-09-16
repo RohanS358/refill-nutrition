@@ -23,6 +23,14 @@ export const site = {
   phone: "+977-1-5918273",
 } as const;
 
+/**
+ * Contact email/phone settings hold one or more values, comma-separated.
+ * Splitting here keeps a single admin field and a single override key.
+ */
+export function contactList(value: string): string[] {
+  return value.split(",").map((v) => v.trim()).filter(Boolean);
+}
+
 export type NavItem = {
   label: string;
   href: string;

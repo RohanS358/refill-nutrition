@@ -7,7 +7,7 @@ import { IndexRow } from "@/components/site/index-row";
 import { Reveal } from "@/components/motion/reveal";
 import { T } from "@/components/cms/t";
 import { text } from "@/lib/cms/content";
-import { site } from "@/lib/site";
+import { site, contactList } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/careers" },
@@ -55,7 +55,8 @@ const disciplines = [
 ];
 
 export default async function CareersPage() {
-  const email = await text("site.email", site.email);
+  // mailto takes a comma-separated recipient list natively.
+  const email = contactList(await text("site.email", site.email)).join(",");
   const rows = await Promise.all(
     disciplines.map(async (d, i) => ({
       ...d,

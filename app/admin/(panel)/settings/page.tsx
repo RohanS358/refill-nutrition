@@ -20,8 +20,12 @@ export default async function AdminSettingsPage() {
   };
 
   const fields: { name: keyof typeof values; label: string; hint?: string }[] = [
-    { name: "email", label: "Contact email" },
-    { name: "phone", label: "Phone" },
+    {
+      name: "email",
+      label: "Contact email",
+      hint: "Separate multiple addresses with commas",
+    },
+    { name: "phone", label: "Phone", hint: "Separate multiple numbers with commas" },
     { name: "city", label: "City" },
     { name: "country", label: "Country" },
     { name: "coordinates", label: "Coordinates", hint: "Shown in the footer and contact page" },

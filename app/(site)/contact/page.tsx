@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/site/contact-form";
 import { Reveal } from "@/components/motion/reveal";
 import { T } from "@/components/cms/t";
 import { text } from "@/lib/cms/content";
-import { site } from "@/lib/site";
+import { site, contactList } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
@@ -59,16 +59,31 @@ export default async function ContactPage() {
                   </li>
                   <li className="flex items-start gap-4">
                     <Mail size={18} strokeWidth={1.5} aria-hidden="true" className="mt-0.5 text-primary" />
-                    <a
-                      href={`mailto:${email}`}
-                      className="text-sm font-semibold underline decoration-border underline-offset-4 hover:decoration-primary"
-                    >
-                      {email}
-                    </a>
+                    <div className="space-y-1.5">
+                      {contactList(email).map((address) => (
+                        <a
+                          key={address}
+                          href={`mailto:${address}`}
+                          className="block text-sm font-semibold underline decoration-border underline-offset-4 hover:decoration-primary"
+                        >
+                          {address}
+                        </a>
+                      ))}
+                    </div>
                   </li>
                   <li className="flex items-start gap-4">
                     <Phone size={18} strokeWidth={1.5} aria-hidden="true" className="mt-0.5 text-primary" />
-                    <p className="text-sm font-semibold" data-cms="site.phone">{phone}</p>
+                    <div className="space-y-1.5" data-cms="site.phone">
+                      {contactList(phone).map((number) => (
+                        <a
+                          key={number}
+                          href={`tel:${number.replace(/[^+\d]/g, "")}`}
+                          className="block text-sm font-semibold underline decoration-border underline-offset-4 hover:decoration-primary"
+                        >
+                          {number}
+                        </a>
+                      ))}
+                    </div>
                   </li>
                 </ul>
               </div>

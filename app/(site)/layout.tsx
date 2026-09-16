@@ -1,5 +1,5 @@
 import React from "react";
-import { site } from "@/lib/site";
+import { site, contactList } from "@/lib/site";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { EditBridge } from "@/components/cms/edit-bridge";
@@ -18,7 +18,7 @@ const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    email: site.email,
+    email: contactList(site.email),
     contactType: "customer service",
   },
 };

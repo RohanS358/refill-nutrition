@@ -3,7 +3,7 @@
 // Every value here must be a fact we can defend — schema markup that
 // misrepresents the business is a manual-action risk, not a growth hack.
 
-import { site } from "./site";
+import { site, contactList } from "./site";
 import type { ProductFamily } from "./products";
 
 /** The company itself — emitted once, in the root layout. */
@@ -18,8 +18,8 @@ export function organizationSchema() {
     description: site.description,
     slogan: site.motto,
     foundingDate: String(site.founded),
-    email: site.email,
-    telephone: site.phone,
+    email: contactList(site.email),
+    telephone: contactList(site.phone),
     address: {
       "@type": "PostalAddress",
       streetAddress: "Dillibazar",
