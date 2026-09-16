@@ -29,14 +29,14 @@ const principles = [
   },
 ];
 
-/** Chapter 07 — dark chapter: the research philosophy, helix drawn on scroll. */
+/** Chapter 08 — dark chapter: the research philosophy, helix drawn on scroll. */
 export async function Research() {
   return (
     <Section id="research" tone="dark">
       <div className="grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <SectionHeading
-            index="07"
+            index="08"
             ck="home.research"
             eyebrow="Research philosophy"
             title="Science is the supply chain."

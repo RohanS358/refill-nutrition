@@ -18,7 +18,7 @@ export default function NotFound() {
 function NotFoundBody() {
   return (
     <main className="flex min-h-screen flex-col justify-center bg-background">
-      <div className="mx-auto w-full max-w-[88rem] px-5 py-32 md:px-12 lg:px-20">
+      <div className="shell py-32">
         <div className="flex items-center gap-4">
           <Molecule variant="metabolic" className="h-14 w-14 text-primary" />
           <p className="text-eyebrow text-muted-foreground">Error 404 · Compound not found</p>

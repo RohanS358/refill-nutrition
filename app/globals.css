@@ -130,28 +130,28 @@
 ------------------------------------------------------------------- */
 
 @utility text-display-xl {
-  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-size: clamp(3.5rem, 9.5vw, 11.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.92;
 }
 
 @utility text-display {
-  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-size: clamp(2.25rem, 5vw, 5.75rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.02;
 }
 
 @utility text-title {
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-size: clamp(1.35rem, 2vw, 2.05rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 @utility text-lead {
-  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.75rem);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.5;
@@ -262,6 +262,28 @@
 
 .marquee-mask:hover .animate-marquee {
   animation-play-state: paused;
+}
+
+/* ------------------------------------------------------------------
+   Page shell — one place that decides how wide the site runs and how
+   much gutter it keeps. Large screens get more content, not more margin.
+------------------------------------------------------------------- */
+
+@utility shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 120rem;              /* 1920px — fills a large desktop */
+  padding-inline: 1.25rem;        /* 20px on phones */
+}
+
+@media (min-width: 768px) {
+  .shell { padding-inline: 3rem; }
+}
+@media (min-width: 1024px) {
+  .shell { padding-inline: 4rem; }
+}
+@media (min-width: 1536px) {
+  .shell { padding-inline: 5.5rem; }
 }
 
 /* ------------------------------------------------------------------

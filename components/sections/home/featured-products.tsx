@@ -1,6 +1,7 @@
 import { Section } from "@/components/site/section";
 import { SectionHeading } from "@/components/site/section-heading";
-import { ProductCarousel, CarouselLink } from "@/components/site/product-carousel";
+import { CarouselLink } from "@/components/site/product-carousel";
+import { ProductLineup } from "@/components/site/product-lineup";
 import { Reveal } from "@/components/motion/reveal";
 import { collection } from "@/lib/cms/content";
 import { productFamilies, ranges as rangeDefaults } from "@/lib/products";
@@ -36,7 +37,7 @@ export async function FeaturedProducts() {
       </Reveal>
 
       <Reveal delay={90} className="mt-16 md:mt-20">
-        <ProductCarousel products={families} />
+        <ProductLineup products={families} />
       </Reveal>
 
       <Reveal delay={180}>

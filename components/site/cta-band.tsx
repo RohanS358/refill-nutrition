@@ -27,7 +27,7 @@ export async function CtaBand({
 
   return (
     <section aria-labelledby="cta-heading" className="border-t border-border bg-background">
-      <div className="mx-auto max-w-[88rem] px-5 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40">
+      <div className="shell py-24 md:py-32 lg:py-40">
         <Reveal>
           <Eyebrow>
             <span data-cms={`${ck}.eyebrow`}>{eyebrowText}</span>

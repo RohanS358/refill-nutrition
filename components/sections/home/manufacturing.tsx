@@ -13,12 +13,12 @@ const commitments = [
   { index: "D", title: "Industry growth", body: "A foundation for Nepal's nutraceutical and healthcare sector." },
 ];
 
-/** Chapter 08 — the manufacturing vision as a blueprint. */
+/** Chapter 09 — the manufacturing vision as a blueprint. */
 export async function Manufacturing() {
   return (
     <Section id="manufacturing">
       <SectionHeading
-        index="08"
+        index="09"
         ck="home.manufacturing"
         eyebrow="Future manufacturing"
         title="Made in Nepal, to a global standard."

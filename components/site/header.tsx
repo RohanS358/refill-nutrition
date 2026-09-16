@@ -70,7 +70,7 @@ export function Header() {
           darkTop && "text-background",
         )}
       >
-        <div className="mx-auto flex h-16 max-w-[88rem] items-center justify-between px-5 md:h-20 md:px-12 lg:px-20">
+        <div className="shell flex h-16 items-center justify-between md:h-20">
           <Logo onDark={darkTop} />
 
           <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">

@@ -9,6 +9,7 @@ import { Timeline } from "@/components/sections/home/timeline";
 import { Research } from "@/components/sections/home/research";
 import { Manufacturing } from "@/components/sections/home/manufacturing";
 import { SportsPreview } from "@/components/sections/home/sports-preview";
+import { Team } from "@/components/sections/home/team";
 import { Stats } from "@/components/sections/home/stats";
 import { CtaBand } from "@/components/site/cta-band";
 import { text } from "@/lib/cms/content";
@@ -41,6 +42,7 @@ export default async function Home() {
       <Research />
       <Manufacturing />
       <SportsPreview />
+      <Team />
       <Stats />
       <CtaBand />
     </>

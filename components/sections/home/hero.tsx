@@ -58,7 +58,7 @@ export function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </div>
 
           <div
-            className="relative mx-auto flex w-full max-w-[88rem] flex-1 flex-col justify-center px-5 pt-16 will-change-transform md:px-12 md:pt-20 lg:px-20"
+            className="shell relative flex flex-1 flex-col justify-center pt-16 will-change-transform md:pt-20"
             style={{ opacity: textOpacity, transform: `translateY(${textShift}px)` }}
           >
             <p className="text-eyebrow flex flex-wrap items-center gap-x-3 gap-y-2 text-paper-dim">
@@ -139,7 +139,7 @@ export function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
 
           {/* Data strip */}
           <div
-            className="relative mx-auto w-full max-w-[88rem] px-5 pb-8 md:px-12 lg:px-20"
+            className="shell relative pb-8"
             style={{ opacity: textOpacity }}
           >
             <div className="grid grid-cols-2 gap-x-8 gap-y-4 border-t border-line-dark pt-6 md:grid-cols-4">

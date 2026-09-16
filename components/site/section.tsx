@@ -33,7 +33,7 @@ export function Section({
     >
       <div
         className={cn(
-          "mx-auto max-w-[88rem] px-5 md:px-12 lg:px-20",
+          "shell",
           density === "dense" ? "py-16 md:py-24" : "py-24 md:py-32 lg:py-40",
         )}
       >

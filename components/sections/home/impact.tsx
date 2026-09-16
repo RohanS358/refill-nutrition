@@ -21,7 +21,7 @@ export function Impact() {
     <section aria-labelledby="impact-heading">
       <div ref={ref} className="relative h-[220vh]">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <div className="mx-auto w-full max-w-[88rem] px-5 md:px-12 lg:px-20">
+          <div className="shell">
             <div className="flex items-baseline gap-4">
               <span aria-hidden="true" className="text-data text-muted-foreground">
                 02

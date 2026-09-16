@@ -7,14 +7,14 @@ import { Pathway } from "@/components/gfx/pathway";
 import { collection } from "@/lib/cms/content";
 import { solutions as defaultSolutions, protocolSteps } from "@/lib/solutions";
 
-/** Chapter 05 — sticky rail + scrolling solution panels. */
+/** Chapter 06 — sticky rail + scrolling solution panels. */
 export async function Solutions() {
   const solutions = await collection("solutions", defaultSolutions);
 
   return (
     <Section id="solutions">
       <SectionHeading
-        index="05"
+        index="06"
         ck="home.solutions"
         eyebrow="Healthcare solutions"
         title="From formulation to bedside."

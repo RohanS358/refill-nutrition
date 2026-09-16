@@ -54,7 +54,7 @@ export async function PageHero({
         className,
       )}
     >
-      <div className="mx-auto max-w-[88rem] px-5 pb-16 pt-36 md:px-12 md:pb-24 md:pt-44 lg:px-20">
+      <div className="shell pb-16 pt-36 md:pb-24 md:pt-44">
         <Reveal>
           <Eyebrow className={dark ? "text-green-soft" : undefined}>
             <span data-cms={ck ? `${ck}.eyebrow` : undefined}>{eyebrowText}</span>

@@ -5,14 +5,14 @@ import { Reveal } from "@/components/motion/reveal";
 import { collection } from "@/lib/cms/content";
 import { statistics } from "@/lib/timeline";
 
-/** Chapter 10 — honest numbers on hairlines. */
+/** Chapter 11 — honest numbers on hairlines. */
 export async function Stats() {
   const stats = await collection("stats", statistics);
 
   return (
     <Section id="stats" density="dense">
       <SectionHeading
-        index="10"
+        index="11"
         ck="home.stats"
         eyebrow="Company statistics"
         title="Where we stand."

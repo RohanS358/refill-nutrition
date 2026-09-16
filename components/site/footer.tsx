@@ -18,7 +18,7 @@ export async function Footer() {
 
   return (
     <footer className="border-t border-line-dark bg-ink-deep text-background">
-      <div className="mx-auto max-w-[88rem] px-5 md:px-12 lg:px-20">
+      <div className="shell">
         {/* Giant wordmark */}
         <div className="border-b border-line-dark py-16 md:py-20">
           <p

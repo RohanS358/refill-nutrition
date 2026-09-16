@@ -24,6 +24,7 @@ import {
 import { milestones, statistics } from "@/lib/timeline";
 import { solutions } from "@/lib/solutions";
 import { brochures, type Brochure } from "@/lib/brochures";
+import { team, type TeamMember } from "@/lib/team";
 import { saveUpload, deleteUpload } from "@/lib/cms/uploads";
 
 /**
@@ -40,6 +41,7 @@ const collectionDefaults: Record<string, unknown> = {
   evidence: evidenceDecks,
   ranges,
   brochures,
+  team,
 };
 
 function revalidateSite() {
@@ -194,6 +196,22 @@ export async function saveBrochures(items: Brochure[]): Promise<void> {
     .filter((b) => b.pages.length > 0);
   const overrides = await readOverrides();
   overrides.collections.brochures = cleaned;
+  await writeOverrides(overrides);
+  revalidateSite();
+}
+
+/** Replace the team list (admin team CRUD). */
+export async function saveTeam(members: TeamMember[]): Promise<void> {
+  await assertAdmin();
+  const cleaned = members
+    .filter((m) => m.name.trim().length > 0)
+    .map((m, i) => ({
+      ...m,
+      id: m.id || slugify(m.name),
+      index: String(i + 1).padStart(2, "0"),
+    }));
+  const overrides = await readOverrides();
+  overrides.collections.team = cleaned;
   await writeOverrides(overrides);
   revalidateSite();
 }

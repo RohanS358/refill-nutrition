@@ -31,6 +31,12 @@ export type ProductFamily = {
   applications: string[];
   /** Transparent product render extracted from the brochure artwork. */
   image?: string;
+  /**
+   * Relative display height in the group lineup, 1 = a standard 400 g jar.
+   * The renders are cropped at different aspect ratios, so this keeps the
+   * shelf looking like one photograph instead of arbitrary crops.
+   */
+  scale?: number;
   pack?: string;
   flavour?: string;
   /** Printed nutrition panel, when the brochure carries one. */
@@ -103,6 +109,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "amino",
     range: "enteral",
     image: "/products/progain-hp.webp",
+    scale: 1.0,
     pack: "400 g jar",
     flavour: "Vanilla",
     summary:
@@ -170,6 +177,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "metabolic",
     range: "enteral",
     image: "/products/progain-lp.webp",
+    scale: 0.98,
     pack: "400 g jar",
     flavour: "Creamy Vanilla",
     summary:
@@ -230,6 +238,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "metabolic",
     range: "enteral",
     image: "/products/progain-dm.webp",
+    scale: 0.98,
     pack: "400 g jar",
     flavour: "Vanilla",
     summary:
@@ -300,6 +309,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "amino",
     range: "enteral",
     image: "/products/progain-peptide.webp",
+    scale: 0.95,
     pack: "400 g jar",
     flavour: "Vanilla",
     summary:
@@ -359,6 +369,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "amino",
     range: "enteral",
     image: "/products/progain-junior.webp",
+    scale: 0.88,
     pack: "200 g jar",
     flavour: "Vanilla · Premium Chocolate",
     summary:
@@ -402,6 +413,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "amino",
     range: "daily",
     image: "/products/re-pro.webp",
+    scale: 0.86,
     pack: "200 g tin",
     flavour: "Vanilla",
     summary:
@@ -455,6 +467,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "calcium",
     range: "tablets",
     image: "/products/calcinine.webp",
+    scale: 0.72,
     pack: "30 tablets",
     summary:
       "1250 mg calcium carbonate with D3, magnesium, B12 and zinc — bone, joint and neuroregeneration support in one tablet.",
@@ -486,6 +499,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "calcium",
     range: "tablets",
     image: "/products/recal-m.webp",
+    scale: 0.7,
     pack: "60 tablets",
     summary:
       "Milk-derived calcium with D3 and zinc, for osteoporosis, osteoarthritis, fracture recovery and pregnancy.",
@@ -516,6 +530,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "omega",
     range: "tablets",
     image: "/products/cardivit.webp",
+    scale: 0.6,
     pack: "1 × 10 tablets",
     summary:
       "A triple-antioxidant tablet with omega-3, sitosterol and selenium — cardiovascular, neurological and oncology support.",
@@ -546,6 +561,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "metabolic",
     range: "tablets",
     image: "/products/recure.webp",
+    scale: 0.74,
     pack: "100 ml syrup",
     summary:
       "95% curcumin extract with lycopene and piperine — anti-inflammatory and antioxidant support for chronically ill patients.",
@@ -584,6 +600,7 @@ export const productFamilies: ProductFamily[] = [
     molecule: "metabolic",
     range: "devices",
     image: "/products/gravity-set-bag.webp",
+    scale: 0.8,
     pack: "1.2 / 1.5 litre feeding bag",
     summary:
       "An ENFit-standard gravity feeding set that physically prevents misconnection with IV lines.",
