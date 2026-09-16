@@ -76,10 +76,10 @@ export default async function AboutPage() {
             <Reveal delay={180}>
               <div className="mt-12 max-w-2xl space-y-6 leading-relaxed text-muted-foreground">
                 <T k="about.story.p1" as="p">
-                  Refill Enterprises Pvt. Ltd. is a nutraceutical company dedicated to serving the growing needs of healthcare professionals and patients with high-quality, science-based products in clinical and critical care nutrition — calcium supplements, amino acid formulations, Omega-3 fatty acids, and specialized metabolic solutions designed to support recovery, rehabilitation, and overall patient well-being.
+                  Refill Enterprises Pvt. Ltd. is a nutraceutical company dedicated to serving the growing needs of healthcare professionals and patients with high-quality, science-based products in clinical and critical care nutrition — the progain enteral range for intensive care, renal, diabetic and paediatric states, re-pro daily protein, and calcium, antioxidant and curcumin supplementation designed to support recovery, rehabilitation, and overall patient well-being.
                 </T>
                 <T k="about.story.p2" as="p">
-                  Beyond nutraceuticals, we introduce advanced medical devices and healthcare applications used exclusively in critical care nutrition and patient management — bridging the gap between modern healthcare technology and patient-centered nutritional care through strategic partnerships.
+                  Beyond nutraceuticals, we introduce BAITONG ENFit-standard enteral delivery systems used exclusively in critical care nutrition — bridging the gap between modern healthcare technology and patient-centered nutritional care through strategic partnerships.
                 </T>
                 <T k="about.story.p3" as="p">
                   Next: a sports nutrition portfolio built on the same clinical foundation, and — as our long-term commitment — a state-of-the-art manufacturing facility in Nepal that strengthens domestic healthcare capability, quality assurance, self-reliance, and employment.

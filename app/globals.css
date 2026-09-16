@@ -264,6 +264,24 @@
   animation-play-state: paused;
 }
 
+/* ------------------------------------------------------------------
+   Pack shots — the product renders are transparent cut-outs, so the
+   shadow follows the silhouette rather than a box. Two stacked
+   drop-shadows: a soft ambient one and a tighter contact shadow, so the
+   jar reads as standing on the surface instead of floating.
+------------------------------------------------------------------- */
+
+.pack-shot {
+  filter:
+    drop-shadow(0 18px 22px rgb(18 32 25 / 0.13))
+    drop-shadow(0 3px 4px rgb(18 32 25 / 0.10));
+}
+
+/* Lighter on Deep Ink, where a dark shadow would disappear. */
+.pack-shot-dark {
+  filter: drop-shadow(0 16px 26px rgb(0 0 0 / 0.45));
+}
+
 /* Subtle drift for molecular fields (decorative only) */
 @keyframes drift {
   0%, 100% { transform: translate3d(0, 0, 0); }

@@ -4,7 +4,8 @@ import { Section } from "@/components/site/section";
 import { CtaBand } from "@/components/site/cta-band";
 import { Reveal } from "@/components/motion/reveal";
 import { BrochureViewer } from "@/components/site/brochure-viewer";
-import { brochures } from "@/lib/brochures";
+import { brochures as brochureDefaults } from "@/lib/brochures";
+import { collection } from "@/lib/cms/content";
 
 export const metadata: Metadata = {
   title: "Brochures",
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
     "The printed Refill product literature — product spreads and clinical evidence decks for the progain range, supplementation line and enteral devices.",
 };
 
-export default function BrochuresPage() {
+export default async function BrochuresPage() {
+  const brochures = await collection("brochures", brochureDefaults);
   const spreads = brochures.reduce((n, b) => n + b.pages.length, 0);
 
   return (

@@ -39,3 +39,5 @@ next-env.d.ts
 /public/images/*.psd
 /public/images/*.png
 !/public/images/background.png
+/public/uploads/*
+!/public/uploads/.gitkeep

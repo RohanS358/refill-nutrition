@@ -17,10 +17,14 @@ import {
 import {
   productFamilies,
   expertiseDomains,
+  evidenceDecks,
+  ranges,
   type ProductFamily,
 } from "@/lib/products";
 import { milestones, statistics } from "@/lib/timeline";
 import { solutions } from "@/lib/solutions";
+import { brochures, type Brochure } from "@/lib/brochures";
+import { saveUpload, deleteUpload } from "@/lib/cms/uploads";
 
 /**
  * Defaults for collections the visual editor can deep-edit via "col:" keys.
@@ -33,6 +37,9 @@ const collectionDefaults: Record<string, unknown> = {
   timeline: milestones,
   stats: statistics,
   solutions,
+  evidence: evidenceDecks,
+  ranges,
+  brochures,
 };
 
 function revalidateSite() {
@@ -107,6 +114,16 @@ export async function saveProducts(families: ProductFamily[]): Promise<void> {
       index: String(i + 1).padStart(2, "0"),
       compounds: f.compounds.filter((c) => c.label.trim().length > 0),
       applications: f.applications.map((a) => a.trim()).filter(Boolean),
+      claims: f.claims?.map((c) => c.trim()).filter(Boolean),
+      directions: f.directions?.map((d) => d.trim()).filter(Boolean),
+      references: f.references?.map((r) => r.trim()).filter(Boolean),
+      perTin: f.perTin?.filter((m) => m.label.trim().length > 0),
+      nutrition: f.nutrition
+        ? {
+            ...f.nutrition,
+            rows: f.nutrition.rows.filter((r) => r.nutrient.trim().length > 0),
+          }
+        : undefined,
     }));
   const overrides = await readOverrides();
   overrides.collections.products = cleaned;
@@ -140,5 +157,43 @@ export async function saveSettings(formData: FormData): Promise<void> {
 export async function resetAllContent(): Promise<void> {
   await assertAdmin();
   await resetOverrides();
+  revalidateSite();
+}
+
+
+/**
+ * Upload one product image (PNG/JPG/WebP, max 2 MB). Returns the public URL
+ * for the caller to store in the product's `image` field.
+ */
+export async function uploadImage(formData: FormData): Promise<
+  { ok: true; url: string } | { ok: false; error: string }
+> {
+  await assertAdmin();
+  const file = formData.get("file");
+  if (!(file instanceof File)) return { ok: false, error: "No file received." };
+  return saveUpload(file);
+}
+
+/** Remove an uploaded image that is no longer referenced. */
+export async function removeImage(url: string): Promise<void> {
+  await assertAdmin();
+  await deleteUpload(url);
+  revalidateSite();
+}
+
+/** Replace the brochure shelf (admin brochures CRUD). */
+export async function saveBrochures(items: Brochure[]): Promise<void> {
+  await assertAdmin();
+  const cleaned = items
+    .filter((b) => b.title.trim().length > 0)
+    .map((b) => ({
+      ...b,
+      id: b.id || slugify(b.title),
+      pages: b.pages.map((p) => p.trim()).filter(Boolean),
+    }))
+    .filter((b) => b.pages.length > 0);
+  const overrides = await readOverrides();
+  overrides.collections.brochures = cleaned;
+  await writeOverrides(overrides);
   revalidateSite();
 }

@@ -1,13 +1,16 @@
 import { Section } from "@/components/site/section";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/motion/reveal";
-import { evidenceDecks } from "@/lib/products";
+import { evidenceDecks as evidenceDefaults } from "@/lib/products";
+import { collection } from "@/lib/cms/content";
 
 /**
  * Chapter — the clinical burden the portfolio answers to, taken from the
  * CKD, liver and I.C.O.N.S. evidence decks.
  */
-export function Evidence() {
+export async function Evidence() {
+  const evidenceDecks = await collection("evidence", evidenceDefaults);
+
   return (
     <Section id="evidence" tone="dark">
       <SectionHeading

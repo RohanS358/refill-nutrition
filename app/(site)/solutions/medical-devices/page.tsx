@@ -77,7 +77,7 @@ export default function MedicalDevicesPage() {
                     width={520}
                     height={520}
                     sizes="(max-width: 1024px) 70vw, 420px"
-                    className="h-[280px] w-auto object-contain object-left md:h-[380px]"
+                    className="pack-shot h-[280px] w-auto object-contain object-left md:h-[380px]"
                   />
                 </Parallax>
               </Reveal>

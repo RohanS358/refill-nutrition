@@ -3,7 +3,10 @@
 import { useState, useTransition } from "react";
 import { ChevronUp, ChevronDown, Trash2, Plus, X } from "lucide-react";
 import { saveProducts } from "@/app/admin/actions";
-import type { ProductFamily } from "@/lib/products";
+import type { ProductFamily, RangeId } from "@/lib/products";
+import { ranges } from "@/lib/products";
+import { ImageField } from "./image-field";
+import { StringList } from "./string-list";
 
 const inputClass =
   "mt-1.5 w-full border border-border bg-card px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary";
@@ -72,8 +75,12 @@ export function ProductsEditor({ initial }: { initial: ProductFamily[] }) {
               <span className="text-data text-muted-foreground">
                 {String(i + 1).padStart(2, "0")}
               </span>
+              {family.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={family.image} alt="" className="h-10 w-10 object-contain" />
+              ) : null}
               <span className="flex-1 text-sm font-semibold">
-                {family.name || "New product family"}
+                {family.name || "New product"}
               </span>
               <span className="flex items-center gap-1">
                 <button
@@ -118,6 +125,53 @@ export function ProductsEditor({ initial }: { initial: ProductFamily[] }) {
                   value={family.category}
                   onChange={(e) => update(i, { category: e.target.value })}
                   className={inputClass}
+                />
+              </div>
+              <div>
+                <label className={labelClass}>Strapline (pack line)</label>
+                <input
+                  value={family.strapline ?? ""}
+                  placeholder="Whey… for good heal"
+                  onChange={(e) => update(i, { strapline: e.target.value || undefined })}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label className={labelClass}>Range</label>
+                <select
+                  value={family.range}
+                  onChange={(e) => update(i, { range: e.target.value as RangeId })}
+                  className={inputClass}
+                >
+                  {ranges.map((r) => (
+                    <option key={r.id} value={r.id}>
+                      {r.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className={labelClass}>Pack</label>
+                <input
+                  value={family.pack ?? ""}
+                  placeholder="400 g jar"
+                  onChange={(e) => update(i, { pack: e.target.value || undefined })}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label className={labelClass}>Flavour</label>
+                <input
+                  value={family.flavour ?? ""}
+                  placeholder="Vanilla"
+                  onChange={(e) => update(i, { flavour: e.target.value || undefined })}
+                  className={inputClass}
+                />
+              </div>
+              <div className="md:col-span-2">
+                <ImageField
+                  value={family.image}
+                  onChange={(url) => update(i, { image: url })}
                 />
               </div>
               <div className="md:col-span-2">
@@ -248,6 +302,172 @@ export function ProductsEditor({ initial }: { initial: ProductFamily[] }) {
                   </button>
                 </div>
               </div>
+
+              <div className="md:col-span-2">
+                <StringList
+                  label="Claims (as printed on the literature)"
+                  items={family.claims}
+                  placeholder="Early high protein intake was associated with lower mortality — 37%"
+                  onChange={(v) => update(i, { claims: v })}
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <StringList
+                  label="Directions for use"
+                  items={family.directions}
+                  placeholder="Take 60–100 ml warm water in a glass"
+                  onChange={(v) => update(i, { directions: v })}
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className={labelClass}>Per-tin figures (sticky panel)</label>
+                <div className="mt-1.5 space-y-2">
+                  {(family.perTin ?? []).map((m, mi) => (
+                    <div key={mi} className="flex gap-2">
+                      <input
+                        value={m.label}
+                        placeholder="Energy (kcal)"
+                        onChange={(e) =>
+                          update(i, {
+                            perTin: (family.perTin ?? []).map((mm, j) =>
+                              j === mi ? { ...mm, label: e.target.value } : mm,
+                            ),
+                          })
+                        }
+                        className="w-1/2 border border-border bg-card px-3 py-2 text-sm outline-none focus:border-primary"
+                      />
+                      <input
+                        value={m.value}
+                        placeholder="1456"
+                        onChange={(e) =>
+                          update(i, {
+                            perTin: (family.perTin ?? []).map((mm, j) =>
+                              j === mi ? { ...mm, value: e.target.value } : mm,
+                            ),
+                          })
+                        }
+                        className="flex-1 border border-border bg-card px-3 py-2 text-sm outline-none focus:border-primary"
+                      />
+                      <button
+                        type="button"
+                        aria-label="Remove figure"
+                        onClick={() =>
+                          update(i, {
+                            perTin: (family.perTin ?? []).filter((_, j) => j !== mi),
+                          })
+                        }
+                        className="px-2 text-muted-foreground hover:text-red-700"
+                      >
+                        <X size={14} strokeWidth={2} />
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      update(i, { perTin: [...(family.perTin ?? []), { label: "", value: "" }] })
+                    }
+                    className="text-eyebrow inline-flex items-center gap-1.5 text-primary"
+                  >
+                    <Plus size={14} strokeWidth={2} aria-hidden="true" /> Add figure
+                  </button>
+                </div>
+              </div>
+
+              <div className="md:col-span-2">
+                <label className={labelClass}>Nutrition information</label>
+                <input
+                  value={family.nutrition?.servingNote ?? ""}
+                  placeholder="Per serving = 25 g (2 scoops)"
+                  onChange={(e) =>
+                    update(i, {
+                      nutrition: {
+                        servingNote: e.target.value,
+                        rows: family.nutrition?.rows ?? [],
+                      },
+                    })
+                  }
+                  className={inputClass}
+                />
+                <div className="mt-2 space-y-2">
+                  {(family.nutrition?.rows ?? []).map((r, ri) => (
+                    <div key={ri} className="flex gap-2">
+                      {(["nutrient", "unit", "per100", "perServing"] as const).map((field) => (
+                        <input
+                          key={field}
+                          value={r[field]}
+                          placeholder={field}
+                          onChange={(e) =>
+                            update(i, {
+                              nutrition: {
+                                servingNote: family.nutrition?.servingNote ?? "",
+                                rows: (family.nutrition?.rows ?? []).map((rr, j) =>
+                                  j === ri ? { ...rr, [field]: e.target.value } : rr,
+                                ),
+                              },
+                            })
+                          }
+                          className="min-w-0 flex-1 border border-border bg-card px-2 py-2 text-sm outline-none focus:border-primary"
+                        />
+                      ))}
+                      <button
+                        type="button"
+                        aria-label="Remove nutrient row"
+                        onClick={() =>
+                          update(i, {
+                            nutrition: {
+                              servingNote: family.nutrition?.servingNote ?? "",
+                              rows: (family.nutrition?.rows ?? []).filter((_, j) => j !== ri),
+                            },
+                          })
+                        }
+                        className="px-2 text-muted-foreground hover:text-red-700"
+                      >
+                        <X size={14} strokeWidth={2} />
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      update(i, {
+                        nutrition: {
+                          servingNote: family.nutrition?.servingNote ?? "",
+                          rows: [
+                            ...(family.nutrition?.rows ?? []),
+                            { nutrient: "", unit: "", per100: "", perServing: "" },
+                          ],
+                        },
+                      })
+                    }
+                    className="text-eyebrow inline-flex items-center gap-1.5 text-primary"
+                  >
+                    <Plus size={14} strokeWidth={2} aria-hidden="true" /> Add nutrient row
+                  </button>
+                </div>
+              </div>
+
+              <div className="md:col-span-2">
+                <label className={labelClass}>Suggested use</label>
+                <textarea
+                  rows={2}
+                  value={family.suggestedUse ?? ""}
+                  onChange={(e) => update(i, { suggestedUse: e.target.value || undefined })}
+                  className={inputClass}
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <StringList
+                  label="References"
+                  items={family.references}
+                  rows={1}
+                  placeholder="J Anesth Crit Care Open Access 2016, 6(1): 00213"
+                  onChange={(v) => update(i, { references: v })}
+                />
+              </div>
             </div>
           </details>
         ))}
@@ -263,7 +483,7 @@ export function ProductsEditor({ initial }: { initial: ProductFamily[] }) {
           }}
           className="inline-flex items-center gap-2 border border-foreground px-5 py-3 text-sm font-semibold transition-colors hover:bg-foreground hover:text-background"
         >
-          <Plus size={16} strokeWidth={1.5} aria-hidden="true" /> Add family
+          <Plus size={16} strokeWidth={1.5} aria-hidden="true" /> Add product
         </button>
         <button
           type="button"

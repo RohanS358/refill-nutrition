@@ -98,7 +98,7 @@ export default async function CriticalCareNutritionPage() {
                     width={64}
                     height={80}
                     sizes="64px"
-                    className="h-16 w-auto shrink-0 object-contain transition-transform duration-500 group-hover:-translate-y-1"
+                    className="pack-shot h-16 w-auto shrink-0 object-contain transition-transform duration-500 group-hover:-translate-y-1"
                   />
                 ) : (
                   <Molecule variant={family.molecule} className="h-12 w-12 shrink-0 text-primary" />

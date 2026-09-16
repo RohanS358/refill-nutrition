@@ -57,7 +57,13 @@ export function BrochureViewer({ brochures }: { brochures: Brochure[] }) {
             >
               <span className="relative block overflow-hidden bg-secondary">
                 <Image
-                  src={b.pages[0].replace(".webp", "-thumb.webp")}
+                  // Committed spreads ship a -thumb variant; admin uploads
+                  // don't, so fall back to the full-size page.
+                  src={
+                    b.pages[0].startsWith("/brochures/")
+                      ? b.pages[0].replace(".webp", "-thumb.webp")
+                      : b.pages[0]
+                  }
                   alt={`${b.title} brochure`}
                   width={560}
                   height={396}

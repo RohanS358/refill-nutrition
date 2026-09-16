@@ -3,11 +3,12 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { ProductCarousel, CarouselLink } from "@/components/site/product-carousel";
 import { Reveal } from "@/components/motion/reveal";
 import { collection } from "@/lib/cms/content";
-import { productFamilies, ranges } from "@/lib/products";
+import { productFamilies, ranges as rangeDefaults } from "@/lib/products";
 
 /** Chapter 04 — the catalogue as a draggable pack-shot carousel. */
 export async function FeaturedProducts() {
   const families = await collection("products", productFamilies);
+  const ranges = await collection("ranges", rangeDefaults);
 
   return (
     <Section id="products">

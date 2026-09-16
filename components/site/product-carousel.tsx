@@ -34,11 +34,13 @@ export function ProductCarousel({ products }: { products: ProductFamily[] }) {
   return (
     <div>
       <div ref={emblaRef} className="overflow-hidden">
-        <div className="flex">
+        {/* pr on the track gives the final slide the same gutter the
+            border-l/pl pairing gives every other one. */}
+        <div className="flex pr-6 md:pr-10">
           {products.map((p) => (
             <article
               key={p.id}
-              className="group relative min-w-0 shrink-0 grow-0 basis-[85%] border-l border-border pl-6 sm:basis-[55%] md:basis-[42%] md:pl-10 lg:basis-[30%]"
+              className="group relative min-w-0 shrink-0 grow-0 basis-[85%] border-l border-border px-6 sm:basis-[55%] md:basis-[42%] md:px-10 lg:basis-[30%]"
             >
               <div className="flex h-[240px] items-end justify-center md:h-[280px]">
                 {p.image ? (
@@ -48,7 +50,7 @@ export function ProductCarousel({ products }: { products: ProductFamily[] }) {
                     width={260}
                     height={330}
                     sizes="(max-width: 768px) 60vw, 260px"
-                    className="h-full w-auto object-contain transition-transform duration-500 group-hover:-translate-y-2"
+                    className="pack-shot h-full w-auto object-contain transition-transform duration-500 group-hover:-translate-y-2"
                   />
                 ) : null}
               </div>
