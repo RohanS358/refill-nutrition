@@ -23,7 +23,7 @@ export async function Testimonials() {
   return (
     <Section id="testimonials" tone="dark">
       <SectionHeading
-        index="09"
+        index="03"
         ck="home.testimonials"
         tone="dark"
         eyebrow="From the ward"

@@ -6,13 +6,14 @@ import { collection } from "@/lib/cms/content";
 import { expertiseDomains } from "@/lib/products";
 
 /** Chapter 03 — six domains as an editorial index. */
-export async function Expertise() {
+/** `index` continues the host page's chapter numbering; omit for none. */
+export async function Expertise({ index }: { index?: string } = {}) {
   const domains = await collection("expertise", expertiseDomains);
 
   return (
     <Section id="expertise">
       <SectionHeading
-        index="03"
+        index={index}
         ck="home.expertise"
         eyebrow="Core expertise"
         title="Six domains. One discipline."

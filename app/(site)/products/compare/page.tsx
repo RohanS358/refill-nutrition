@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { CtaBand } from "@/components/site/cta-band";
@@ -7,12 +8,12 @@ import { T } from "@/components/cms/t";
 import { collection } from "@/lib/cms/content";
 import { productFamilies, ranges as rangeDefaults } from "@/lib/products";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Compare products",
-  alternates: { canonical: "/products/compare" },
+  path: "/products/compare",
   description:
     "Compare the Refill clinical catalogue side by side — pack size, flavour, composition, energy and protein per serving, and clinical indications.",
-};
+});
 
 export default async function ComparePage() {
   const [families, ranges] = await Promise.all([

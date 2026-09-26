@@ -6,13 +6,14 @@ import { milestones as defaultMilestones } from "@/lib/timeline";
 import { cn } from "@/lib/utils";
 
 /** Chapter 06 — the trajectory, ruled like a lab log. */
-export async function Timeline() {
+/** `index` continues the host page's chapter numbering; omit for none. */
+export async function Timeline({ index }: { index?: string } = {}) {
   const milestones = await collection("timeline", defaultMilestones);
 
   return (
     <Section id="timeline">
       <SectionHeading
-        index="06"
+        index={index}
         ck="home.timeline"
         eyebrow="Innovation timeline"
         title="A short history, a long plan."

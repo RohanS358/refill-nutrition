@@ -15,6 +15,7 @@ export function organizationSchema() {
     name: site.legalName,
     alternateName: site.name,
     url: site.url,
+    logo: `${site.url}/brand/logo-full.png`,
     description: site.description,
     slogan: site.motto,
     foundingDate: String(site.founded),
@@ -25,6 +26,13 @@ export function organizationSchema() {
       streetAddress: "Dillibazar",
       addressLocality: site.city,
       addressCountry: "NP",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: contactList(site.email)[0],
+      telephone: contactList(site.phone)[0],
+      areaServed: "NP",
     },
     areaServed: {
       "@type": "Country",

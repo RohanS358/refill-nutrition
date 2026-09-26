@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { SectionHeading } from "@/components/site/section-heading";
@@ -6,13 +7,14 @@ import { CtaBand } from "@/components/site/cta-band";
 import { Reveal, Draw } from "@/components/motion/reveal";
 import { Helix } from "@/components/gfx/helix";
 import { T } from "@/components/cms/t";
+import { Evidence } from "@/components/sections/home/evidence";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/research" },
+export const metadata: Metadata = pageMeta({
   title: "Research & Innovation",
+  path: "/research",
   description:
     "Our research philosophy: evidence before everything, disease-specific by default, clinician-aligned, and measured in outcomes.",
-};
+});
 
 const methods = [
   {
@@ -136,6 +138,8 @@ export default function ResearchPage() {
           ))}
         </div>
       </Section>
+
+      <Evidence index="03" />
 
       <CtaBand
         ck="research.cta"

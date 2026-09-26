@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -13,12 +14,12 @@ import { Molecule } from "@/components/gfx/molecule";
 import { T } from "@/components/cms/t";
 import { collection } from "@/lib/cms/content";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/solutions/critical-care-nutrition" },
+export const metadata: Metadata = pageMeta({
   title: "Critical Care Nutrition",
+  path: "/solutions/critical-care-nutrition",
   description:
     "Nutritional therapy engineered for intensive care: assessment-led, disease-specific formulations supporting recovery when metabolic demands are most extreme.",
-};
+});
 
 export default async function CriticalCareNutritionPage() {
   const all = await collection("products", productFamilies);

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
@@ -13,12 +14,12 @@ import { applications } from "@/lib/catalogue";
 import { productSchema, breadcrumbSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/site/json-ld";
 
-export const metadata: Metadata = {
-  title: "Products",
-  alternates: { canonical: "/products" },
+export const metadata: Metadata = pageMeta({
+  title: "Clinical Nutrition Products",
+  path: "/products",
   description:
     "Search the clinical catalogue by name, ingredient or indication: the progain enteral range, re-pro daily protein, Calcinine, Recal-M, Cardivit, Recure and BAITONG enteral delivery sets.",
-};
+});
 
 export default async function ProductsPage({
   searchParams,

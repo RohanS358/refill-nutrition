@@ -39,7 +39,7 @@ export function RotatingQuote({ items, interval = 5500 }: { items: RotatingQuote
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
-      className="max-w-lg"
+      className="w-full max-w-lg"
       aria-live="polite"
     >
       {/* key → remount → replay the fade for each new quote */}
@@ -47,13 +47,13 @@ export function RotatingQuote({ items, interval = 5500 }: { items: RotatingQuote
         <blockquote className="line-clamp-2 text-[0.95rem] leading-relaxed text-foreground/80" data-cms={t.quoteKey}>
           &ldquo;{t.quote}&rdquo;
         </blockquote>
-        <figcaption className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
+        <figcaption className="mt-2 flex min-w-0 items-center gap-2 text-xs text-muted-foreground">
           <Icon size={14} className="text-primary" aria-hidden="true" />
-          <span className="font-semibold text-foreground" data-cms={t.nameKey}>
+          <span className="shrink-0 font-semibold text-foreground" data-cms={t.nameKey}>
             {t.name}
           </span>
           <span aria-hidden="true">·</span>
-          <span>{t.meta}</span>
+          <span className="truncate">{t.meta}</span>
         </figcaption>
       </div>
       {items.length > 1 ? (

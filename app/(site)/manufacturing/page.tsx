@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { SectionHeading } from "@/components/site/section-heading";
@@ -9,12 +10,12 @@ import { Blueprint } from "@/components/gfx/blueprint";
 import { T } from "@/components/cms/t";
 import { text } from "@/lib/cms/content";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/manufacturing" },
+export const metadata: Metadata = pageMeta({
   title: "Manufacturing Vision",
+  path: "/manufacturing",
   description:
     "Our long-term commitment: a nutraceutical manufacturing facility in Nepal for quality assurance, self-reliance, employment and industry growth.",
-};
+});
 
 const pillars = [
   {

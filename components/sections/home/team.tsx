@@ -10,13 +10,14 @@ import { team as teamDefaults } from "@/lib/team";
  * product and evidence chapters use; portraits are optional, so the
  * section reads correctly before any are uploaded.
  */
-export async function Team() {
+/** `index` continues the host page's chapter numbering; omit for none. */
+export async function Team({ index }: { index?: string } = {}) {
   const members = await collection("team", teamDefaults);
 
   return (
     <Section id="team">
       <SectionHeading
-        index="10"
+        index={index}
         ck="home.team"
         eyebrow="Our team"
         title="The people behind the protocol."

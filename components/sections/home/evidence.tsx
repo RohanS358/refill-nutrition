@@ -8,13 +8,14 @@ import { collection } from "@/lib/cms/content";
  * Chapter — the clinical burden the portfolio answers to, taken from the
  * CKD, liver and I.C.O.N.S. evidence decks.
  */
-export async function Evidence() {
+/** `index` continues the host page's chapter numbering; omit for none. */
+export async function Evidence({ index }: { index?: string } = {}) {
   const evidenceDecks = await collection("evidence", evidenceDefaults);
 
   return (
     <Section id="evidence" tone="dark">
       <SectionHeading
-        index="04"
+        index={index}
         tone="dark"
         ck="home.evidence"
         eyebrow="Clinical evidence"

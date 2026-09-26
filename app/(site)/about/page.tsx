@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/site/page-hero";
 import { CtaBand } from "@/components/site/cta-band";
 import { Section } from "@/components/site/section";
@@ -10,13 +11,15 @@ import { T } from "@/components/cms/t";
 import { collection } from "@/lib/cms/content";
 import { site } from "@/lib/site";
 import { statistics } from "@/lib/timeline";
+import { Timeline } from "@/components/sections/home/timeline";
+import { Team } from "@/components/sections/home/team";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/about" },
-  title: "About",
+export const metadata: Metadata = pageMeta({
+  title: "About Us",
+  path: "/about",
   description:
     "Refill Enterprises Pvt. Ltd. — a Nepali nutraceutical company, est. 2020, dedicated to critical care nutrition and better patient outcomes.",
-};
+});
 
 const missionPoints = [
   "Provide evidence-based nutritional and healthcare solutions.",
@@ -164,6 +167,9 @@ export default async function AboutPage() {
       </Section>
 
       {/* Numbers */}
+      <Timeline index="03" />
+      <Team index="04" />
+
       <Section density="dense">
         <Reveal>
           <StatBlock

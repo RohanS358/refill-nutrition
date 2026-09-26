@@ -1,20 +1,24 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Hero } from "@/components/sections/home/hero";
 import { heroDefaults, type HeroCopy } from "@/components/sections/home/hero-copy";
 import { GoodToKnow } from "@/components/sections/home/good-to-know";
 import { StoryExpand } from "@/components/sections/home/story-expand";
 import { Moments } from "@/components/sections/home/moments";
 import { FindProduct } from "@/components/sections/home/find-product";
-import { Expertise } from "@/components/sections/home/expertise";
-import { Solutions } from "@/components/sections/home/solutions";
-import { Evidence } from "@/components/sections/home/evidence";
-import { Timeline } from "@/components/sections/home/timeline";
-import { Research } from "@/components/sections/home/research";
-import { Manufacturing } from "@/components/sections/home/manufacturing";
 import { Testimonials } from "@/components/sections/home/testimonials";
-import { Team } from "@/components/sections/home/team";
-import { Stats } from "@/components/sections/home/stats";
 import { CtaBand } from "@/components/site/cta-band";
 import { text } from "@/lib/cms/content";
+
+// The home page is the one most people land on from search, so its title and
+// description name what the company is and where: clinical nutrition, Nepal.
+export const metadata: Metadata = pageMeta({
+  title: "Refill Enterprises — Clinical Nutrition Made in Nepal",
+  absoluteTitle: true,
+  path: "/",
+  description:
+    "Clinical and critical care nutrition from Nepal: the progain enteral range for ICU, renal, diabetic and paediatric care, re-pro daily protein, supplements and ENFit feeding sets.",
+});
 
 export default async function Home() {
   const heroCopy: HeroCopy = {
@@ -30,17 +34,9 @@ export default async function Home() {
       <Hero copy={heroCopy} />
       <GoodToKnow />
       <FindProduct />
-      <Expertise />
       <StoryExpand />
-      <Evidence />
-      <Solutions />
-      <Timeline />
-      <Research />
-      <Manufacturing />
       <Testimonials />
       <Moments />
-      <Team />
-      <Stats />
       <CtaBand />
     </>
   );

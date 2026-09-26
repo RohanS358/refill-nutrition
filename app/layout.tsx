@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     "ENFit enteral feeding",
     "medical devices Nepal",
   ],
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: site.legalName,

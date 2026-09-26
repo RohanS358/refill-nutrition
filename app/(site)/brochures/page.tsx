@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { CtaBand } from "@/components/site/cta-band";
@@ -8,12 +9,12 @@ import { brochures as brochureDefaults } from "@/lib/brochures";
 import { collection } from "@/lib/cms/content";
 import { T } from "@/components/cms/t";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/brochures" },
-  title: "Brochures",
+export const metadata: Metadata = pageMeta({
+  title: "Product Brochures",
+  path: "/brochures",
   description:
     "The printed Refill product literature — product spreads and clinical evidence decks for the progain range, supplementation line and enteral devices.",
-};
+});
 
 export default async function BrochuresPage() {
   const brochures = await collection("brochures", brochureDefaults);

@@ -1,31 +1,12 @@
 import React from "react";
-import { site, contactList } from "@/lib/site";
 import { SiteHeader } from "@/components/site/site-header";
 import { TextsProvider } from "@/components/cms/texts-context";
 import { getOverrides } from "@/lib/cms/content";
 import { Footer } from "@/components/site/footer";
 import { EditBridge } from "@/components/cms/edit-bridge";
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.legalName,
-  url: site.url,
-  foundingDate: String(site.founded),
-  description: site.description,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: site.city,
-    addressCountry: "NP",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: contactList(site.email),
-    contactType: "customer service",
-  },
-};
 
-/** Public-site chrome: skip link, header, footer, structured data. */
+/** Public-site chrome: skip link, header, footer. (Structured data lives in the root layout.) */
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   const { texts } = await getOverrides();
   return (
@@ -39,10 +20,6 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <SiteHeader />
       <main id="content">{children}</main>
       <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
       <EditBridge />
     </TextsProvider>
   );

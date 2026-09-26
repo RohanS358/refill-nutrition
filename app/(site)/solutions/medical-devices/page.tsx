@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
@@ -10,12 +11,12 @@ import { Parallax } from "@/components/motion/parallax";
 import { productFamilies } from "@/lib/products";
 import { T } from "@/components/cms/t";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/solutions/medical-devices" },
+export const metadata: Metadata = pageMeta({
   title: "Medical Devices & Applications",
+  path: "/solutions/medical-devices",
   description:
     "Advanced medical devices and healthcare applications used exclusively in critical care nutrition and patient management, introduced through strategic partnerships.",
-};
+});
 
 export default function MedicalDevicesPage() {
   const device = productFamilies.find((p) => p.id === "gravity-set-bag");

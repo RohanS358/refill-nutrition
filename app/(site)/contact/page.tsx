@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
@@ -8,12 +9,12 @@ import { T } from "@/components/cms/t";
 import { text } from "@/lib/cms/content";
 import { site, contactList } from "@/lib/site";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/contact" },
-  title: "Contact",
+export const metadata: Metadata = pageMeta({
+  title: "Contact Us",
+  path: "/contact",
   description:
     "Contact Refill Enterprises Pvt. Ltd. — hospitals, clinicians, distributors, and partners. Kathmandu, Nepal.",
-};
+});
 
 export default async function ContactPage() {
   const [email, phone, city, country, coordinates] = await Promise.all([

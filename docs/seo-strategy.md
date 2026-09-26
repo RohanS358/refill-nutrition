@@ -4,8 +4,8 @@
 
 - Per-route `metadata` exports: unique `title` (template: `%s — Refill Enterprises`),
   ≤ 160-char descriptions written for clinicians/procurement, canonical URLs via
-  `metadataBase` (set the production domain in `app/layout.tsx` when known —
-  currently a placeholder `https://refillenterprises.com`).
+  `metadataBase` — the production domain `https://refillenterprises.com.np`,
+  set once as `site.url` in `lib/site.ts`.
 - `app/sitemap.ts` (all 11 routes) and `app/robots.ts` (allow all, sitemap ref).
 - OpenGraph/Twitter cards on every route; OG image is generated brand typography
   (roadmap item: `opengraph-image.tsx`).

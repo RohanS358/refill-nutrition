@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
@@ -9,13 +10,14 @@ import { Pathway } from "@/components/gfx/pathway";
 import { collection } from "@/lib/cms/content";
 import { solutions as defaultSolutions, protocolSteps } from "@/lib/solutions";
 import { T } from "@/components/cms/t";
+import { Expertise } from "@/components/sections/home/expertise";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/solutions" },
-  title: "Solutions",
+export const metadata: Metadata = pageMeta({
+  title: "Clinical Nutrition Solutions",
+  path: "/solutions",
   description:
     "Two solution areas, one pathway: critical care nutrition and the medical devices & healthcare applications that deliver it.",
-};
+});
 
 export default async function SolutionsPage() {
   const solutions = await collection("solutions", defaultSolutions);
@@ -78,6 +80,8 @@ export default async function SolutionsPage() {
           ))}
         </div>
       </Section>
+
+      <Expertise />
 
       <CtaBand ck="solutions.cta" />
     </>

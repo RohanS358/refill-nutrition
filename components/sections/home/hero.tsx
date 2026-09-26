@@ -94,7 +94,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           fit
           tileBg="transparent"
           overlayColor="transparent"
-          className="!absolute inset-x-0 bottom-0 z-0 !h-[26rem] !w-auto lg:!h-auto lg:inset-y-[4%] lg:left-[42%] lg:right-[2%]"
+          className="!absolute inset-x-0 bottom-0 z-0 !h-[20rem] !w-auto sm:!h-[26rem] lg:!h-auto lg:inset-y-[4%] lg:left-[42%] lg:right-[2%]"
         />
 
         {/* Page-coloured fade so packs passing behind the copy don't fight it. */}
@@ -103,8 +103,8 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(to_right,var(--background)_0%,var(--background)_36%,transparent_52%)] max-lg:hidden"
         />
 
-        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-28 pb-[27rem] lg:min-h-[100svh] lg:justify-center lg:pb-10">
-          <p className="animate-rise-in pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-sm font-medium shadow-sm backdrop-blur">
+        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[20rem] sm:pt-28 sm:pb-[27rem] lg:min-h-[100svh] lg:justify-center lg:pb-10">
+          <p className="animate-rise-in pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3.5 py-1.5 text-xs font-medium sm:px-4 sm:py-2 sm:text-sm shadow-sm backdrop-blur">
             <Heart
               size={15}
               className="fill-coral text-coral"
@@ -113,7 +113,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
             <T k="home.hero.badge">{`Made in ${site.country} · Trusted by hospitals`}</T>
           </p>
 
-          <h1 className="mt-7 max-w-[11ch] text-balance text-[clamp(2.75rem,5.4vw,5.5rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
+          <h1 className="mt-5 max-w-[11ch] sm:mt-7 text-balance text-[clamp(2.75rem,5.4vw,5.5rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
             <span className="animate-rise-in block" data-cms="home.hero.line1">
               {copy.line1}
             </span>
@@ -132,7 +132,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </h1>
 
           <p
-            className="animate-rise-in text-lead mt-7 max-w-lg text-muted-foreground"
+            className="animate-rise-in mt-5 max-w-lg text-[1.05rem] leading-relaxed text-muted-foreground sm:text-lead sm:mt-7"
             style={{ animationDelay: "240ms" }}
             data-cms="home.hero.lead"
           >
@@ -140,12 +140,12 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </p>
 
           <div
-            className="animate-rise-in pointer-events-auto mt-9 flex flex-wrap items-center gap-3"
+            className="animate-rise-in pointer-events-auto mt-7 grid w-full grid-cols-1 gap-2.5 sm:mt-9 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-3"
             style={{ animationDelay: "320ms" }}
           >
             <Link
               href="/products"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-foreground"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-5 py-3.5 text-sm sm:px-7 sm:py-4 font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-foreground"
             >
               <span data-cms="home.hero.cta1">{copy.cta1}</span>
               <ArrowUpRight
@@ -157,14 +157,14 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
             </Link>
             <Link
               href="/solutions/critical-care-nutrition"
-              className="inline-flex items-center rounded-full border border-foreground/15 bg-card/70 px-7 py-4 text-sm font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground"
+              className="inline-flex items-center justify-center rounded-full border border-foreground/15 bg-card/70 px-5 py-3.5 text-sm sm:px-7 sm:py-4 font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground"
             >
               <span data-cms="home.hero.cta2">{copy.cta2}</span>
             </Link>
           </div>
 
           <div
-            className="animate-rise-in mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+            className="animate-rise-in mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 sm:mt-10 sm:gap-y-4"
             style={{ animationDelay: "400ms" }}
           >
             <div className="flex items-center gap-3">
@@ -177,7 +177,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
                     alt=""
                     width={44}
                     height={44}
-                    className="h-11 w-11 rounded-full border-2 border-background object-cover"
+                    className="h-9 w-9 rounded-full border-2 border-background object-cover sm:h-11 sm:w-11"
                   />
                 ))}
               </div>
@@ -187,11 +187,11 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
                 </T>
               </p>
             </div>
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-1.5 sm:gap-2">
               {chips.map((c) => (
                 <li
                   key={c.label}
-                  className={`rounded-full ${c.tone} px-4 py-2 text-sm text-ink-deep`}
+                  className={`rounded-full ${c.tone} px-3 py-1.5 text-xs text-ink-deep sm:px-4 sm:py-2 sm:text-sm`}
                 >
                   <strong className="font-bold">{c.value}</strong>{" "}
                   <span data-cms={c.key}>{c.label}</span>
@@ -201,7 +201,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </div>
 
           <div
-            className="animate-rise-in pointer-events-auto mt-8"
+            className="animate-rise-in pointer-events-auto mt-6 sm:mt-8"
             style={{ animationDelay: "480ms" }}
           >
             <HeroQuote />

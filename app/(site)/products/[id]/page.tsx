@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
@@ -29,16 +30,12 @@ export async function generateMetadata({
   const family = families.find((p) => p.id === id);
   if (!family) return {};
 
-  return {
-    title: family.name,
+  return pageMeta({
+    title: `${family.name} — ${family.category}`,
     description: family.summary,
-    alternates: { canonical: `/products/${family.id}` },
-    openGraph: {
-      title: `${family.name} — ${family.category}`,
-      description: family.summary,
-      ...(family.image ? { images: [{ url: family.image }] } : {}),
-    },
-  };
+    path: `/products/${family.id}`,
+    ...(family.image ? { image: family.image } : {}),
+  });
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {

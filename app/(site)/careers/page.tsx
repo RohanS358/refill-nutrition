@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { SectionHeading } from "@/components/site/section-heading";
@@ -9,12 +10,12 @@ import { T } from "@/components/cms/t";
 import { text } from "@/lib/cms/content";
 import { site, contactList } from "@/lib/site";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/careers" },
-  title: "Careers",
+export const metadata: Metadata = pageMeta({
+  title: "Careers in Clinical Nutrition",
+  path: "/careers",
   description:
     "Join Refill Enterprises — help build Nepal's clinical nutrition and future manufacturing capability.",
-};
+});
 
 const principles = [
   {

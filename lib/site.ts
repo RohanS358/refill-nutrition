@@ -17,8 +17,7 @@ export const site = {
   coordinates: "27.7172° N, 85.3240° E",
   /** Exim code printed on the literature — used in the org schema. */
   eximCode: "6098774290146NP",
-  // TODO(content): confirm the production domain before launch.
-  url: "https://refillenterprises.com",
+  url: "https://refillenterprises.com.np",
   email: "refillenterprises@gmail.com",
   phone: "+977-1-5918273",
 } as const;
