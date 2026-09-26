@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { site, contactList } from "@/lib/site";
+import { Tc } from "@/components/cms/texts-context";
 
 type Field = "name" | "organization" | "email" | "message";
 
@@ -57,7 +58,7 @@ export function ContactForm() {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-name" className="text-eyebrow text-muted-foreground">
-            Name *
+            <Tc k="contact.form.name">Name *</Tc>
           </label>
           <input
             id="cf-name"
@@ -77,7 +78,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="cf-org" className="text-eyebrow text-muted-foreground">
-            Organization
+            <Tc k="contact.form.org">Organization</Tc>
           </label>
           <input
             id="cf-org"
@@ -91,7 +92,7 @@ export function ContactForm() {
       </div>
       <div className="mt-6">
         <label htmlFor="cf-email" className="text-eyebrow text-muted-foreground">
-          Email *
+          <Tc k="contact.form.email">Email *</Tc>
         </label>
         <input
           id="cf-email"
@@ -112,7 +113,7 @@ export function ContactForm() {
       </div>
       <div className="mt-6">
         <label htmlFor="cf-message" className="text-eyebrow text-muted-foreground">
-          Message *
+          <Tc k="contact.form.message">Message *</Tc>
         </label>
         <textarea
           id="cf-message"
@@ -134,7 +135,7 @@ export function ContactForm() {
         type="submit"
         className="group mt-8 inline-flex items-center gap-3 bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-foreground"
       >
-        Send message
+        <Tc k="contact.form.send">Send message</Tc>
         <ArrowUpRight
           size={18}
           strokeWidth={1.5}

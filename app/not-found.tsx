@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Molecule } from "@/components/gfx/molecule";
-import { Header } from "@/components/site/header";
+import { SiteHeader } from "@/components/site/site-header";
 import { Footer } from "@/components/site/footer";
 
 // Global 404 sits outside the (site) route group, so it carries its own chrome.
 export default function NotFound() {
   return (
     <>
-      <Header />
+      <SiteHeader />
       <NotFoundBody />
       <Footer />
     </>

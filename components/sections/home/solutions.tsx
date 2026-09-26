@@ -6,15 +6,16 @@ import { Reveal, Draw } from "@/components/motion/reveal";
 import { Pathway } from "@/components/gfx/pathway";
 import { collection } from "@/lib/cms/content";
 import { solutions as defaultSolutions, protocolSteps } from "@/lib/solutions";
+import { T } from "@/components/cms/t";
 
-/** Chapter 06 — sticky rail + scrolling solution panels. */
+/** Chapter 05 — sticky rail + scrolling solution panels. */
 export async function Solutions() {
   const solutions = await collection("solutions", defaultSolutions);
 
   return (
     <Section id="solutions">
       <SectionHeading
-        index="06"
+        index="05"
         ck="home.solutions"
         eyebrow="Healthcare solutions"
         title="From formulation to bedside."
@@ -31,7 +32,7 @@ export async function Solutions() {
               />
             </Draw>
             <p className="text-data mt-6 text-muted-foreground">
-              Fig. 01 — The clinical nutrition pathway, screen to recovery.
+              <T k="solutions.fig1">Fig. 01 — The clinical nutrition pathway, screen to recovery.</T>
             </p>
           </div>
         </div>

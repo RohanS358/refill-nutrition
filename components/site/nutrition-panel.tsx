@@ -1,4 +1,5 @@
 import type { NutrientRow } from "@/lib/products";
+import { Tc } from "@/components/cms/texts-context";
 
 /**
  * The printed "Nutrition Information" panel, rebuilt as a hairline table.
@@ -16,7 +17,7 @@ export function NutritionPanel({
   return (
     <div>
       <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <h3 className="text-eyebrow text-muted-foreground">Nutrition information</h3>
+        <Tc k="product.nutrition.title" as="h3" className="text-eyebrow text-muted-foreground">Nutrition information</Tc>
         <p className="text-data text-muted-foreground">{servingNote}</p>
       </div>
 
@@ -33,10 +34,10 @@ export function NutritionPanel({
               scope="col"
               className="text-eyebrow py-3 pr-4 text-right font-normal text-muted-foreground"
             >
-              Per 100 g
+              <Tc k="product.nutrition.per100">Per 100 g</Tc>
             </th>
             <th scope="col" className="text-eyebrow py-3 text-right font-normal text-muted-foreground">
-              Per serving
+              <Tc k="product.nutrition.perServing">Per serving</Tc>
             </th>
           </tr>
         </thead>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { X, ArrowLeft, ArrowRight, Expand } from "lucide-react";
 import type { Brochure } from "@/lib/brochures";
+import { Tc } from "@/components/cms/texts-context";
 
 /**
  * Brochure shelf + lightbox. Spreads open in an overlay with keyboard
@@ -72,7 +73,7 @@ export function BrochureViewer({ brochures }: { brochures: Brochure[] }) {
                 />
                 <span className="absolute right-4 bottom-4 flex items-center gap-2 bg-ink-deep/85 px-3 py-2 text-background opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <Expand size={14} strokeWidth={1.5} aria-hidden="true" />
-                  <span className="text-eyebrow">View</span>
+                  <Tc k="brochures.view" className="text-eyebrow">View</Tc>
                 </span>
               </span>
               <span className="block p-6 md:p-8">

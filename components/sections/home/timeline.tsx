@@ -5,14 +5,14 @@ import { collection } from "@/lib/cms/content";
 import { milestones as defaultMilestones } from "@/lib/timeline";
 import { cn } from "@/lib/utils";
 
-/** Chapter 07 — the trajectory, ruled like a lab log. */
+/** Chapter 06 — the trajectory, ruled like a lab log. */
 export async function Timeline() {
   const milestones = await collection("timeline", defaultMilestones);
 
   return (
     <Section id="timeline">
       <SectionHeading
-        index="07"
+        index="06"
         ck="home.timeline"
         eyebrow="Innovation timeline"
         title="A short history, a long plan."

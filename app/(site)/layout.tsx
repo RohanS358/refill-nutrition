@@ -1,6 +1,8 @@
 import React from "react";
 import { site, contactList } from "@/lib/site";
-import { Header } from "@/components/site/header";
+import { SiteHeader } from "@/components/site/site-header";
+import { TextsProvider } from "@/components/cms/texts-context";
+import { getOverrides } from "@/lib/cms/content";
 import { Footer } from "@/components/site/footer";
 import { EditBridge } from "@/components/cms/edit-bridge";
 
@@ -24,16 +26,17 @@ const organizationSchema = {
 };
 
 /** Public-site chrome: skip link, header, footer, structured data. */
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
+export default async function SiteLayout({ children }: { children: React.ReactNode }) {
+  const { texts } = await getOverrides();
   return (
-    <>
+    <TextsProvider texts={texts}>
       <a
         href="#content"
         className="text-eyebrow fixed left-5 top-5 z-[100] -translate-y-24 bg-primary px-4 py-3 text-primary-foreground transition-transform focus-visible:translate-y-0"
       >
         Skip to content
       </a>
-      <Header />
+      <SiteHeader />
       <main id="content">{children}</main>
       <Footer />
       <script
@@ -41,6 +44,6 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <EditBridge />
-    </>
+    </TextsProvider>
   );
 }

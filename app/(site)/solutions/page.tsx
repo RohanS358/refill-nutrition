@@ -8,6 +8,7 @@ import { Reveal, Draw } from "@/components/motion/reveal";
 import { Pathway } from "@/components/gfx/pathway";
 import { collection } from "@/lib/cms/content";
 import { solutions as defaultSolutions, protocolSteps } from "@/lib/solutions";
+import { T } from "@/components/cms/t";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/solutions" },
@@ -36,7 +37,7 @@ export default async function SolutionsPage() {
           />
         </Draw>
         <p className="text-data mt-6 text-muted-foreground">
-          Fig. 01 — The clinical nutrition pathway, screen to recovery.
+          <T k="solutions.fig1">Fig. 01 — The clinical nutrition pathway, screen to recovery.</T>
         </p>
 
         <div className="mt-16 grid gap-px border border-border bg-border md:mt-24 lg:grid-cols-2">

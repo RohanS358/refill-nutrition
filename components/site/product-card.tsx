@@ -1,8 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { ProductFamily } from "@/lib/products";
 import { Molecule } from "@/components/gfx/molecule";
 import { cn } from "@/lib/utils";
+import { Tc } from "@/components/cms/texts-context";
 
 /**
  * Product-family card: molecule mark, name, category, compound ledger.
@@ -25,14 +27,25 @@ export function ProductCard({
         <span aria-hidden="true" className="text-data text-muted-foreground">
           {family.index}
         </span>
-        <Molecule
-          variant={family.molecule}
-          className="h-20 w-20 text-primary transition-transform duration-500 group-hover:-translate-y-1"
-        />
+        {family.image ? (
+          <Image
+            src={family.image}
+            alt=""
+            width={160}
+            height={200}
+            sizes="120px"
+            className="pack-shot h-20 w-auto object-contain transition-transform duration-500 group-hover:-translate-y-1"
+          />
+        ) : (
+          <Molecule
+            variant={family.molecule}
+            className="h-20 w-20 text-primary transition-transform duration-500 group-hover:-translate-y-1"
+          />
+        )}
       </div>
       <h3 className="text-title mt-8">
         <Link
-          href={`/products#${family.id}`}
+          href={`/products/${family.id}`}
           className="after:absolute after:inset-0 focus-visible:outline-2"
         >
           <span data-cms={key("name")}>{family.name}</span>
@@ -59,8 +72,22 @@ export function ProductCard({
           </div>
         ))}
       </dl>
-      <span className="text-eyebrow mt-8 inline-flex items-center gap-2 text-primary">
-        Explore family
+      <dl className="text-data mt-5 flex flex-wrap gap-x-6 gap-y-1.5 text-muted-foreground">
+        {family.pack ? (
+          <div className="flex gap-2">
+            <Tc k="product.label.pack" as="dt">Pack</Tc>
+            <dd className="text-foreground">{family.pack}</dd>
+          </div>
+        ) : null}
+        {family.applications[0] ? (
+          <div className="flex gap-2">
+            <Tc k="product.label.indication" as="dt" className="sr-only">Indication</Tc>
+            <dd className="text-foreground">{family.applications[0]}</dd>
+          </div>
+        ) : null}
+      </dl>
+      <span className="text-eyebrow mt-6 inline-flex items-center gap-2 text-primary">
+        <Tc k="product.card.cta">View product</Tc>
         <ArrowUpRight
           size={16}
           strokeWidth={1.5}

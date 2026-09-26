@@ -89,7 +89,7 @@ export default async function CriticalCareNutritionPage() {
             return (
             <Reveal key={family.id}>
               <Link
-                href={`/products#${family.id}`}
+                href={`/products/${family.id}`}
                 className="group flex items-center gap-6 border-b border-border py-6 transition-colors hover:bg-card md:gap-10 md:py-8"
               >
                 {family.image ? (

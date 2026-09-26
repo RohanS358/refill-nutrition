@@ -66,7 +66,8 @@ export function productSchema(p: ProductFamily) {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": `${site.url}/products#${p.id}`,
+    "@id": `${site.url}/products/${p.id}`,
+    url: `${site.url}/products/${p.id}`,
     name: p.name,
     category: p.category,
     description: p.summary,

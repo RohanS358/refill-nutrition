@@ -13,12 +13,12 @@ const commitments = [
   { index: "D", title: "Industry growth", body: "A foundation for Nepal's nutraceutical and healthcare sector." },
 ];
 
-/** Chapter 09 — the manufacturing vision as a blueprint. */
+/** Chapter 08 — the manufacturing vision as a blueprint. */
 export async function Manufacturing() {
   return (
     <Section id="manufacturing">
       <SectionHeading
-        index="09"
+        index="08"
         ck="home.manufacturing"
         eyebrow="Future manufacturing"
         title="Made in Nepal, to a global standard."
@@ -30,7 +30,7 @@ export async function Manufacturing() {
             <Blueprint className="text-primary" />
           </Draw>
           <p className="text-data mt-6 text-muted-foreground">
-            Fig. 02 — Concept plan, future Refill production facility. Status: planned.
+            <T k="home.manufacturing.fig">Fig. 02 — Concept plan, future Refill production facility. Status: planned.</T>
           </p>
         </div>
         <div className="lg:col-span-5">
@@ -62,7 +62,7 @@ export async function Manufacturing() {
               href="/manufacturing"
               className="group text-eyebrow mt-10 inline-flex items-center gap-2 text-primary"
             >
-              The manufacturing vision
+              <T k="home.manufacturing.cta">The manufacturing vision</T>
               <ArrowUpRight
                 size={16}
                 strokeWidth={1.5}

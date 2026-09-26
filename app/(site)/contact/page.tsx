@@ -44,7 +44,7 @@ export default async function ContactPage() {
           <div className="lg:col-span-5">
             <Reveal delay={90}>
               <div className="border border-border bg-card p-8 md:p-10">
-                <h2 className="text-eyebrow text-primary">Coordinates</h2>
+                <T k="contact.coordinates.label" as="h2" className="text-eyebrow text-primary">Coordinates</T>
                 <ul className="mt-6 space-y-5">
                   <li className="flex items-start gap-4">
                     <MapPin size={18} strokeWidth={1.5} aria-hidden="true" className="mt-0.5 text-primary" />

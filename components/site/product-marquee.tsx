@@ -47,7 +47,7 @@ export function ProductMarquee({ products }: { products: ProductFamily[] }) {
         {track.map((p, i) => (
           <Link
             key={`${p.id}-${i}`}
-            href={`/products#${p.id}`}
+            href={`/products/${p.id}`}
             aria-hidden={i >= shots.length}
             tabIndex={i >= shots.length ? -1 : undefined}
             className="flex shrink-0 flex-col items-center opacity-80 transition-opacity duration-300 hover:opacity-100"

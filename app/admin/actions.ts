@@ -25,6 +25,9 @@ import { milestones, statistics } from "@/lib/timeline";
 import { solutions } from "@/lib/solutions";
 import { brochures, type Brochure } from "@/lib/brochures";
 import { team, type TeamMember } from "@/lib/team";
+import { testimonials, type Testimonial } from "@/lib/testimonials";
+import { banners } from "@/lib/banners";
+import { photos, type Photo } from "@/lib/photos";
 import { saveUpload, deleteUpload } from "@/lib/cms/uploads";
 
 /**
@@ -42,6 +45,8 @@ const collectionDefaults: Record<string, unknown> = {
   ranges,
   brochures,
   team,
+  testimonials,
+  banners,
 };
 
 function revalidateSite() {
@@ -212,6 +217,39 @@ export async function saveTeam(members: TeamMember[]): Promise<void> {
     }));
   const overrides = await readOverrides();
   overrides.collections.team = cleaned;
+  await writeOverrides(overrides);
+  revalidateSite();
+}
+
+/** Replace photo slots (admin photos). Blank ids fall back to the default. */
+export async function savePhotos(next: Record<string, Photo>): Promise<void> {
+  await assertAdmin();
+  const cleaned: Record<string, Photo> = {};
+  for (const [slot, p] of Object.entries(next)) {
+    if (!(slot in photos)) continue;
+    const id = p.id.trim();
+    const alt = cleanText(p.alt);
+    if (id) cleaned[slot] = { id, alt: alt || photos[slot as keyof typeof photos].alt };
+  }
+  const overrides = await readOverrides();
+  overrides.collections.photos = cleaned;
+  await writeOverrides(overrides);
+  revalidateSite();
+}
+
+/** Replace the testimonial list (admin testimonials CRUD). */
+export async function saveTestimonials(items: Testimonial[]): Promise<void> {
+  await assertAdmin();
+  const cleaned = items
+    .filter((t) => t.quote.trim().length > 0)
+    .map((t) => ({
+      ...t,
+      id: t.id || slugify(`${t.name}-${t.quote.slice(0, 24)}`),
+      quote: cleanText(t.quote),
+      product: t.product?.trim() || undefined,
+    }));
+  const overrides = await readOverrides();
+  overrides.collections.testimonials = cleaned;
   await writeOverrides(overrides);
   revalidateSite();
 }

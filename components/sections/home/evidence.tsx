@@ -14,7 +14,7 @@ export async function Evidence() {
   return (
     <Section id="evidence" tone="dark">
       <SectionHeading
-        index="05"
+        index="04"
         tone="dark"
         ck="home.evidence"
         eyebrow="Clinical evidence"

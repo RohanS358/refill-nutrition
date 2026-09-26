@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { text } from "@/lib/cms/content";
 import { Reveal } from "@/components/motion/reveal";
 import { Eyebrow } from "./eyebrow";
+import { T } from "@/components/cms/t";
 
 /**
  * Closing call-to-action — home chapter 11 and the tail of every page.
@@ -53,7 +54,7 @@ export async function CtaBand({
               href="/contact"
               className="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-foreground focus-visible:outline-2"
             >
-              Contact us
+              <T k="cta.contact">Contact us</T>
               <ArrowUpRight
                 size={18}
                 strokeWidth={1.5}
@@ -65,7 +66,7 @@ export async function CtaBand({
               href="/products"
               className="inline-flex items-center gap-3 border border-foreground px-8 py-4 text-sm font-semibold transition-colors hover:bg-foreground hover:text-background focus-visible:outline-2"
             >
-              View products
+              <T k="cta.products">View products</T>
             </Link>
           </div>
         </Reveal>

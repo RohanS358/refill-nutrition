@@ -59,7 +59,7 @@ export function ProductCarousel({ products }: { products: ProductFamily[] }) {
               </span>
               <h3 className="text-title mt-3">
                 <Link
-                  href={`/products#${p.id}`}
+                  href={`/products/${p.id}`}
                   className="after:absolute after:inset-0 focus-visible:outline-2"
                 >
                   {p.name}

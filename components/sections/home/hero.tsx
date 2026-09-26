@@ -1,168 +1,213 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowDown } from "lucide-react";
-import { useScrollProgress } from "@/hooks/use-scroll-progress";
-import { usePrefersReducedMotion } from "@/components/motion/use-in-view";
-import { Ticker } from "@/components/site/ticker";
+import { ArrowUpRight, Heart } from "lucide-react";
+import { DriftWall } from "@/components/motion/drift-wall";
+import { collection, text } from "@/lib/cms/content";
+import { productFamilies, ranges as rangeDefaults } from "@/lib/products";
+import { allPhotos, unsplash } from "@/lib/photos";
+import { T } from "@/components/cms/t";
+import { HeroQuote } from "./hero-quote";
 import { site } from "@/lib/site";
-
-const tickerItems = [
-  "Critical Care Nutrition",
-  "100% Whey · 42% Protein",
-  "Renal · Low Protein",
-  "Diabetic · Low GI",
-  "Hydrolysed Peptide",
-  "Paediatric Nutrition",
-  "ENFit Enteral Delivery",
-  `Est. ${site.founded} — ${site.city}`,
-  "Evidence-Based",
-] as const;
-
 import { heroDefaults, type HeroCopy } from "./hero-copy";
 
-/**
- * Chapter 01 — scroll scene. The photograph drifts under a Deep Ink
- * scrim and the statement holds the screen, then hands over to the ticker.
- */
-export function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
-  const { ref, progress } = useScrollProgress<HTMLDivElement>();
-  const reduced = usePrefersReducedMotion();
+const WALL_COLUMNS = 4;
 
-  const p = reduced ? 0 : progress;
-  const textOpacity = Math.max(0, 1 - p * 1.6);
-  const textShift = p * -40;
-  const fieldShift = p * -80;
-  const fieldScale = 1 + p * 0.06;
+/**
+ * Chapter 01 — the whole range drifts across the page; the promise sits on the
+ * left. No panels, no fills: packs float on the page itself.
+ */
+export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
+  const [families, ranges, photos, chipLabels] = await Promise.all([
+    collection("products", productFamilies),
+    collection("ranges", rangeDefaults),
+    allPhotos(),
+    Promise.all([
+      text("home.hero.chip.products", "products"),
+      text("home.hero.chip.ranges", "therapy ranges"),
+      text("home.hero.chip.founded", `est. in ${site.city}`),
+    ]),
+  ]);
+  const faces = [
+    photos.grandmotherSmiling,
+    photos.womanSmiling,
+    photos.toddlersInRed,
+    photos.grandfatherSmiling,
+  ];
+
+  // Every pack with a shot goes on the wall, each linking to its page.
+  const packs = families
+    .filter((p) => p.image)
+    .map((p) => ({
+      image: p.image!,
+      title: p.name,
+      href: `/products/${p.id}`,
+    }));
+  // DriftWall deals items round-robin (item i → column i % columns). With 11
+  // packs over 4 columns the deal never lines up, so two passes give each
+  // column ~6 different packs — mixed, and short enough to tilt cleanly.
+  const wallItems = [...packs, ...packs];
+
+  const chips = [
+    {
+      value: String(families.length),
+      label: chipLabels[0],
+      key: "home.hero.chip.products",
+      tone: "bg-mint",
+    },
+    {
+      value: String(ranges.length),
+      label: chipLabels[1],
+      key: "home.hero.chip.ranges",
+      tone: "bg-sky",
+    },
+    {
+      value: String(site.founded),
+      label: chipLabels[2],
+      key: "home.hero.chip.founded",
+      tone: "bg-sun",
+    },
+  ];
 
   return (
-    <section aria-label="Introduction">
-      <div ref={ref} className="relative h-[175vh]">
-        <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-ink-deep text-background">
-          {/* Background photograph */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 will-change-transform"
-            style={{ transform: `translateY(${fieldShift}px) scale(${fieldScale})` }}
-          >
-            <Image
-              src="/images/background.png"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-[78%_30%] grayscale-[35%]"
+    <section
+      aria-label="Introduction"
+      className="relative isolate overflow-hidden bg-background"
+    >
+      {/* Top band: the copy and the drifting wall. The testimonial strip sits
+          below it, outside the wall's box. */}
+      <div className="relative">
+        {/* Full-width drifting wall of packs, weighted right of the copy. */}
+        <DriftWall
+          items={wallItems}
+          columns={WALL_COLUMNS}
+          tileWidth={150}
+          tileHeight={200}
+          gap={26}
+          radius={0}
+          tilt={10}
+          turn={-6}
+          speed={30}
+          parallax={0.5}
+          lift={48}
+          fade={0.35}
+          dim={0.95}
+          imageFit="contain"
+          fit
+          tileBg="transparent"
+          overlayColor="transparent"
+          className="!absolute inset-x-0 bottom-0 z-0 !h-[26rem] !w-auto lg:!h-auto lg:inset-y-[4%] lg:left-[42%] lg:right-[2%]"
+        />
+
+        {/* Page-coloured fade so packs passing behind the copy don't fight it. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(to_right,var(--background)_0%,var(--background)_36%,transparent_52%)] max-lg:hidden"
+        />
+
+        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-28 pb-[27rem] lg:min-h-[100svh] lg:justify-center lg:pb-10">
+          <p className="animate-rise-in pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-sm font-medium shadow-sm backdrop-blur">
+            <Heart
+              size={15}
+              className="fill-coral text-coral"
+              aria-hidden="true"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/75 to-ink-deep/45" />
-          </div>
+            <T k="home.hero.badge">{`Made in ${site.country} · Trusted by hospitals`}</T>
+          </p>
 
-          <div
-            className="shell relative flex flex-1 flex-col justify-center pt-16 will-change-transform md:pt-20"
-            style={{ opacity: textOpacity, transform: `translateY(${textShift}px)` }}
-          >
-            <p className="text-eyebrow flex flex-wrap items-center gap-x-3 gap-y-2 text-paper-dim">
-              <span className="text-green-soft">{site.legalName}</span>
-              <span aria-hidden="true">·</span>
-              <span>Est. {site.founded}</span>
-              <span aria-hidden="true">·</span>
-              <span>{site.country}</span>
-            </p>
-
-            <h1 className="text-display-xl mt-8 max-w-6xl">
-              <span className="block">
-                <span
-                  data-cms="home.hero.line1"
-                  className="flex flex-wrap gap-x-[0.22em]"
-                >
-                  {copy.line1.split(" ").map((word, i) => (
-                    <span
-                      key={word + i}
-                      className="animate-rise-in inline-block"
-                      style={{ animationDelay: `${120 + i * 90}ms` }}
-                    >
-                      {word}
-                    </span>
-                  ))}
-                </span>
-              </span>
-              <span className="flex flex-wrap items-baseline">
-                <span
-                  data-cms="home.hero.line2"
-                  className="inline-flex flex-wrap gap-x-[0.22em]"
-                >
-                  {copy.line2.split(" ").map((word, i) => (
-                    <span
-                      key={word + i}
-                      className="animate-rise-in inline-block"
-                      style={{ animationDelay: `${300 + i * 90}ms` }}
-                    >
-                      {word}
-                    </span>
-                  ))}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="animate-rise-in text-green-soft"
-                  style={{ animationDelay: "390ms" }}
-                >
+          <h1 className="mt-7 max-w-[11ch] text-balance text-[clamp(2.75rem,5.4vw,5.5rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
+            <span className="animate-rise-in block" data-cms="home.hero.line1">
+              {copy.line1}
+            </span>
+            <span
+              className="animate-rise-in block"
+              style={{ animationDelay: "120ms" }}
+            >
+              {/* Highlighter stroke that follows the words across a wrap. */}
+              <span className="box-decoration-clone bg-[linear-gradient(transparent_60%,var(--sun)_60%,var(--sun)_90%,transparent_90%)] text-primary">
+                <span data-cms="home.hero.line2">{copy.line2}</span>
+                <span aria-hidden="true" className="text-foreground">
                   .
                 </span>
               </span>
-            </h1>
+            </span>
+          </h1>
 
-            <p className="text-lead mt-8 max-w-xl text-paper-dim" data-cms="home.hero.lead">
-              {copy.lead}
-            </p>
+          <p
+            className="animate-rise-in text-lead mt-7 max-w-lg text-muted-foreground"
+            style={{ animationDelay: "240ms" }}
+            data-cms="home.hero.lead"
+          >
+            {copy.lead}
+          </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                href="/products"
-                className="group inline-flex items-center gap-3 bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-green-soft"
-              >
-                <span data-cms="home.hero.cta1">{copy.cta1}</span>
-                <ArrowUpRight
-                  size={18}
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
-              <Link
-                href="/solutions/critical-care-nutrition"
-                className="inline-flex items-center gap-3 border border-background px-7 py-4 text-sm font-semibold transition-colors hover:bg-background hover:text-foreground"
-              >
-                <span data-cms="home.hero.cta2">{copy.cta2}</span>
-              </Link>
-            </div>
+          <div
+            className="animate-rise-in pointer-events-auto mt-9 flex flex-wrap items-center gap-3"
+            style={{ animationDelay: "320ms" }}
+          >
+            <Link
+              href="/products"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-foreground"
+            >
+              <span data-cms="home.hero.cta1">{copy.cta1}</span>
+              <ArrowUpRight
+                size={17}
+                strokeWidth={2}
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </Link>
+            <Link
+              href="/solutions/critical-care-nutrition"
+              className="inline-flex items-center rounded-full border border-foreground/15 bg-card/70 px-7 py-4 text-sm font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground"
+            >
+              <span data-cms="home.hero.cta2">{copy.cta2}</span>
+            </Link>
           </div>
 
-          {/* Data strip */}
           <div
-            className="shell relative pb-8"
-            style={{ opacity: textOpacity }}
+            className="animate-rise-in mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+            style={{ animationDelay: "400ms" }}
           >
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4 border-t border-line-dark pt-6 md:grid-cols-4">
-              {copy.strip.map((item, i) => (
-                <div key={item.label}>
-                  <p className="text-eyebrow text-paper-dim" data-cms={`home.hero.strip.${i}.label`}>
-                    {item.label}
-                  </p>
-                  <p className="text-data mt-2 text-background" data-cms={`home.hero.strip.${i}.value`}>
-                    {item.value}
-                  </p>
-                </div>
-              ))}
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-3">
+                {faces.map((f) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={f.id}
+                    src={unsplash(f.id, 96, 96)}
+                    alt=""
+                    width={44}
+                    height={44}
+                    className="h-11 w-11 rounded-full border-2 border-background object-cover"
+                  />
+                ))}
+              </div>
+              <p className="max-w-[11rem] text-sm leading-snug text-muted-foreground">
+                <T k="home.hero.faces">
+                  For patients, parents &amp; grandparents
+                </T>
+              </p>
             </div>
-            <p className="text-eyebrow mt-6 flex items-center gap-2 text-paper-dim">
-              <ArrowDown size={14} strokeWidth={1.5} aria-hidden="true" />
-              Scroll
-            </p>
+            <ul className="flex flex-wrap gap-2">
+              {chips.map((c) => (
+                <li
+                  key={c.label}
+                  className={`rounded-full ${c.tone} px-4 py-2 text-sm text-ink-deep`}
+                >
+                  <strong className="font-bold">{c.value}</strong>{" "}
+                  <span data-cms={c.key}>{c.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div
+            className="animate-rise-in pointer-events-auto mt-8"
+            style={{ animationDelay: "480ms" }}
+          >
+            <HeroQuote />
           </div>
         </div>
       </div>
-
-      <Ticker items={tickerItems} />
     </section>
   );
 }

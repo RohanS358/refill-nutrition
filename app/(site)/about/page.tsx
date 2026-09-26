@@ -99,7 +99,7 @@ export default async function AboutPage() {
         <div className="grid gap-px border border-border bg-border lg:grid-cols-2">
           <div className="bg-background p-8 md:p-14">
             <Reveal>
-              <p className="text-eyebrow text-primary">Vision</p>
+              <T k="about.vision.label" as="p" className="text-eyebrow text-primary">Vision</T>
               <T
                 k="about.vision"
                 as="p"
@@ -111,7 +111,7 @@ export default async function AboutPage() {
           </div>
           <div className="bg-background p-8 md:p-14">
             <Reveal delay={90}>
-              <p className="text-eyebrow text-primary">Mission</p>
+              <T k="about.mission.label" as="p" className="text-eyebrow text-primary">Mission</T>
               <ul className="mt-8">
                 {missionPoints.map((point, i) => (
                   <li

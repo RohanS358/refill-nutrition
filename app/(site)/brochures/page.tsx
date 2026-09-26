@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { BrochureViewer } from "@/components/site/brochure-viewer";
 import { brochures as brochureDefaults } from "@/lib/brochures";
 import { collection } from "@/lib/cms/content";
+import { T } from "@/components/cms/t";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brochures" },
@@ -39,8 +40,7 @@ export default async function BrochuresPage() {
         <BrochureViewer brochures={brochures} />
         <Reveal delay={90}>
           <p className="text-data mt-12 max-w-2xl text-muted-foreground">
-            For the use of a Registered Medical Practitioner, Hospital or Laboratory only.
-            Nutritional supplements are not for medicinal use.
+            <T k="brochures.disclaimer">For the use of a Registered Medical Practitioner, Hospital or Laboratory only. Nutritional supplements are not for medicinal use.</T>
           </p>
         </Reveal>
       </Section>

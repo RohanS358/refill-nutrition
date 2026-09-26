@@ -39,6 +39,7 @@ export type NavItem = {
 
 /** Primary header navigation (desktop). */
 export const primaryNav: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Brochures", href: "/brochures" },
@@ -61,7 +62,7 @@ export const fullNav: NavItem[] = [
 ];
 
 /** Routes that open with a Deep Ink hero — the header inverts on them until scrolled. */
-export const darkHeroRoutes = ["/", "/research"];
+export const darkHeroRoutes = ["/research"];
 
 export const footerColumns: { heading: string; items: NavItem[] }[] = [
   {
@@ -78,6 +79,7 @@ export const footerColumns: { heading: string; items: NavItem[] }[] = [
     heading: "Portfolio",
     items: [
       { label: "Products", href: "/products" },
+      { label: "Compare products", href: "/products/compare" },
       { label: "Brochures", href: "/brochures" },
       { label: "Critical Care Nutrition", href: "/solutions/critical-care-nutrition" },
       { label: "Medical Devices", href: "/solutions/medical-devices" },

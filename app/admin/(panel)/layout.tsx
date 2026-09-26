@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LayoutDashboard, PenTool, FlaskConical, Users, Settings2, ArrowUpRight } from "lucide-react";
+import { LayoutDashboard, PenTool, FlaskConical, Users, Settings2, ArrowUpRight, Images, MessageSquareQuote } from "lucide-react";
 import { requireAdmin } from "@/lib/cms/auth";
 import { logout } from "@/app/admin/actions";
 
@@ -14,6 +14,8 @@ const adminNav = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Visual editor", href: "/admin/editor", icon: PenTool },
   { label: "Products", href: "/admin/products", icon: FlaskConical },
+  { label: "Photos", href: "/admin/photos", icon: Images },
+  { label: "Testimonials", href: "/admin/testimonials", icon: MessageSquareQuote },
   { label: "Team", href: "/admin/team", icon: Users },
   { label: "Settings", href: "/admin/settings", icon: Settings2 },
 ];
