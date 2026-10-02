@@ -30,7 +30,7 @@ export async function FindProduct() {
         ck="home.find"
         eyebrow="Find a product"
         title="Three ways in."
-        lead="Browse the four ranges, start from the condition you are treating, or search the catalogue by name or ingredient."
+        lead="Browse the three ranges, start from the condition you are treating, or search the catalogue by name or ingredient."
       />
 
       <Reveal delay={90} className="mt-16 md:mt-20">

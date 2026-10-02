@@ -13,12 +13,13 @@ import { productFamilies, ranges as rangeDefaults } from "@/lib/products";
 import { applications } from "@/lib/catalogue";
 import { productSchema, breadcrumbSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/site/json-ld";
+import { Faq } from "@/components/site/faq";
 
 export const metadata: Metadata = pageMeta({
   title: "Clinical Nutrition Products",
   path: "/products",
   description:
-    "Search the clinical catalogue by name, ingredient or indication: the progain enteral range, re-pro daily protein, Calcinine, Recal-M, Cardivit, Recure and BAITONG enteral delivery sets.",
+    "Search the clinical catalogue by name, ingredient or indication: the progain enteral range, Calcinine, Recal-M, Cardivit, Recure and BAITONG enteral delivery sets.",
 });
 
 export default async function ProductsPage({
@@ -52,7 +53,7 @@ export default async function ProductsPage({
         ck="products.hero"
         eyebrow="Products"
         title="The clinical catalogue."
-        lead="Eleven products across four ranges. Search by name, ingredient or indication — every figure is transcribed from the product literature."
+        lead="Nine products across three ranges. Search by name, ingredient or indication — every figure is transcribed from the product literature."
         meta={[
           { label: "Products", value: String(families.length) },
           { label: "Ranges", value: String(ranges.length) },
@@ -60,6 +61,8 @@ export default async function ProductsPage({
           { label: "Delivery", value: "Oral & enteral" },
         ]}
       />
+
+      <Faq />
 
       <Section density="dense">
         <ProductMarquee products={families} />

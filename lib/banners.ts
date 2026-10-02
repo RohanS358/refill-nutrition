@@ -49,14 +49,4 @@ export const banners: Banner[] = [
     photo: "dalBhat",
     tone: "sky",
   },
-  {
-    id: "kids",
-    tag: "Little ones",
-    fact: "Complete nutrition for growing kids, from age 1.",
-    body: "Hypoallergenic and amino-acid based, for brain and body.",
-    product: "progain-junior",
-    cta: "progain junior",
-    photo: "girlSmiling",
-    tone: "blush",
-  },
 ];

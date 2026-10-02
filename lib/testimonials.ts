@@ -21,7 +21,7 @@ export const testimonials: Testimonial[] = [
     id: "icu-dietitian",
     kind: "clinician",
     quote:
-      "In the ICU the question is never just calories — it's protein the gut will actually tolerate. Having a 100% whey, high-protein option made locally has changed how early we can start feeding.",
+      "In the ICU the question is never just calories — it's protein the gut will actually tolerate. Having a 100% whey, high-protein option has changed how early we can start feeding.",
     name: "Clinical Dietitian",
     role: "Intensive Care Unit",
     place: "Tertiary hospital, Kathmandu",
@@ -48,16 +48,6 @@ export const testimonials: Testimonial[] = [
     product: "progain-dm",
   },
   {
-    id: "paediatrician",
-    kind: "clinician",
-    quote:
-      "Parents ask what is in the tin. The team came with the evidence, the labelling and the answers — that is rare.",
-    name: "Paediatrician",
-    role: "Paediatric Ward",
-    place: "Bhaktapur",
-    product: "progain-junior",
-  },
-  {
     id: "daughter-carer",
     kind: "family",
     quote:
@@ -76,16 +66,6 @@ export const testimonials: Testimonial[] = [
     role: "Patient",
     place: "Kathmandu",
     product: "progain-lp",
-  },
-  {
-    id: "parent",
-    kind: "family",
-    quote:
-      "Our son has allergies, so finding something complete he could keep down felt impossible. Now it's part of his morning.",
-    name: "Parent",
-    role: "Family",
-    place: "Chitwan",
-    product: "progain-junior",
   },
   {
     id: "son-carer",

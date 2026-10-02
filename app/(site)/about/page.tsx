@@ -18,7 +18,7 @@ export const metadata: Metadata = pageMeta({
   title: "About Us",
   path: "/about",
   description:
-    "Refill Enterprises Pvt. Ltd. — a Nepali nutraceutical company, est. 2020, dedicated to critical care nutrition and better patient outcomes.",
+    "Refill Enterprises Pvt. Ltd. — a nutraceutical company, est. 2020, dedicated to critical care nutrition and better patient outcomes.",
 });
 
 const missionPoints = [

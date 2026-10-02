@@ -110,7 +110,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
               className="fill-coral text-coral"
               aria-hidden="true"
             />
-            <T k="home.hero.badge">{`Made in ${site.country} · Trusted by hospitals`}</T>
+            <T k="home.hero.badge">{`Trusted by hospitals`}</T>
           </p>
 
           <h1 className="mt-5 max-w-[11ch] sm:mt-7 text-balance text-[clamp(2.75rem,5.4vw,5.5rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">

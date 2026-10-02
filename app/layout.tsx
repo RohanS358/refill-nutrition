@@ -16,16 +16,16 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: [
     "critical care nutrition",
-    "clinical nutrition Nepal",
-    "nutraceutical company Nepal",
+    "clinical nutrition",
+    "nutraceutical company",
     "disease-specific metabolic nutrition",
-    "enteral nutrition Nepal",
+    "enteral nutrition",
     "whey protein clinical",
     "renal nutrition CKD",
     "diabetic meal replacement",
     "calcium supplements",
     "ENFit enteral feeding",
-    "medical devices Nepal",
+    "medical devices",
   ],
   openGraph: {
     type: "website",
@@ -49,6 +49,8 @@ export const metadata: Metadata = {
     description: site.description,
     images: ["/og.png"],
   },
+  // Search Console: set GOOGLE_SITE_VERIFICATION to the token from the HTML-tag method.
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },

@@ -13,11 +13,11 @@ import { text } from "@/lib/cms/content";
 // The home page is the one most people land on from search, so its title and
 // description name what the company is and where: clinical nutrition, Nepal.
 export const metadata: Metadata = pageMeta({
-  title: "Refill Enterprises — Clinical Nutrition Made in Nepal",
+  title: "Refill Enterprises — Clinical Nutrition, Engineered",
   absoluteTitle: true,
   path: "/",
   description:
-    "Clinical and critical care nutrition from Nepal: the progain enteral range for ICU, renal, diabetic and paediatric care, re-pro daily protein, supplements and ENFit feeding sets.",
+    "Clinical and critical care nutrition: the progain enteral range for ICU, renal, diabetic and paediatric care, supplements and ENFit feeding sets.",
 });
 
 export default async function Home() {

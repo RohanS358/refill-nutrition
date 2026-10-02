@@ -53,7 +53,7 @@ export type ProductFamily = {
   references?: string[];
 };
 
-export type RangeId = "enteral" | "daily" | "tablets" | "devices";
+export type RangeId = "enteral" | "tablets" | "devices";
 
 export type Range = {
   id: RangeId;
@@ -74,16 +74,8 @@ export const ranges: Range[] = [
       "Food for special dietary purpose — disease-specific powders for intensive care, renal, diabetic, paediatric and malabsorptive states.",
   },
   {
-    id: "daily",
-    index: "02",
-    title: "Daily Protein Nutrition",
-    eyebrow: "re-pro",
-    summary:
-      "Assured daily protein with vital nutrients, for acute illness and general weakness outside the critical-care setting.",
-  },
-  {
     id: "tablets",
-    index: "03",
+    index: "02",
     title: "Tablets & Syrups",
     eyebrow: "Supplement range",
     summary:
@@ -91,7 +83,7 @@ export const ranges: Range[] = [
   },
   {
     id: "devices",
-    index: "04",
+    index: "03",
     title: "Medical Devices",
     eyebrow: "BAITONG",
     summary:
@@ -361,107 +353,8 @@ export const productFamilies: ProductFamily[] = [
       "Intensive care, surgery, neurology, geriatric, gastroenterology, oncology.",
   },
   {
-    id: "progain-junior",
-    index: "05",
-    name: "progain junior — Kidz",
-    strapline: "Imagine what every kid can be?",
-    category: "A Complete Nutrition for Children",
-    molecule: "amino",
-    range: "enteral",
-    image: "/products/progain-junior.webp",
-    scale: 0.88,
-    pack: "200 g jar",
-    flavour: "Vanilla · Premium Chocolate",
-    summary:
-      "A hypoallergenic, amino-acid-based paediatric formula for brain, cognition and physical growth from 1 year.",
-    detail:
-      "Daily meals often lack enough protein, fibre, DHA and other nutrients. Progain Junior meets the extra nutritional need of a child's plate with 34 vital nutrients, DHA and choline for brain and cognition, and the protein and micronutrients that influence height and bone mineral density.",
-    compounds: [
-      { label: "Protein (per tin)", value: "28 g" },
-      { label: "Vital nutrients", value: "34" },
-      { label: "Enriched with", value: "Taurine, Choline, Lactoferrin, FOS, probiotics" },
-      { label: "Age", value: "1+ years" },
-    ],
-    applications: ["Brain & cognition development", "Height & physical growth", "Bone health"],
-    perTin: [
-      { label: "Energy (kcal)", value: "992" },
-      { label: "Protein (g)", value: "28" },
-      { label: "Carbs (g)", value: "120" },
-      { label: "Lipid (g)", value: "40" },
-    ],
-    claims: [
-      "DHA improves measures of school performance including learning ability, reading and spelling",
-      "Choline increases memory capacity and plays a central role in memory & learning",
-      "Protein intake helps increase height at a mean rate of 0.5 cm every 4 weeks",
-      "Calcium has a positive effect on total body BMC and upper limb BMD",
-      "Gluten free, lactose free, hypoallergenic",
-    ],
-    suggestedUse: "Dosage — 2 to 3 servings per day or as suggested by physician.",
-    references: [
-      "Nutrients. 2013 Jul; 5(7): 2777-2810",
-      "Neurosci Biobehav Rev. 2003 Sep; 27(4):385-99",
-      "Journal of Human Nutrition and Dietetics; Volume 28, Issue 6, pages 623-635",
-      "BMJ 2011; 342",
-    ],
-  },
-  {
-    id: "re-pro",
-    index: "06",
-    name: "re-pro",
-    strapline: "Assured Protein with Vital Nutrients",
-    category: "Daily protein supplement",
-    molecule: "amino",
-    range: "daily",
-    image: "/products/re-pro.webp",
-    scale: 0.86,
-    pack: "200 g tin",
-    flavour: "Vanilla",
-    summary:
-      "Highest-quality soy protein at 32 g per 100 g, fortified with 26 vitamins, minerals and fibre — for strength, immunity and vitality.",
-    detail:
-      "For assured daily protein requirements outside the critical-care setting. Re-Pro is a sugar-free soy protein supplement carrying EPA and DHA alongside 26 vitamins and minerals, indicated in acute illness and general weakness.",
-    compounds: [
-      { label: "Protein (per 100 g)", value: "32 g — soy" },
-      { label: "EPA / DHA", value: "40 mg / 200 mg per 100 g" },
-      { label: "Vitamins & minerals", value: "26" },
-      { label: "Sugar (sucrose)", value: "0" },
-    ],
-    applications: ["Acute illness", "General weakness", "Daily protein supplementation"],
-    nutrition: {
-      servingNote: "Per serving = 25 g (2 scoops)",
-      rows: [
-        { nutrient: "Energy", unit: "kcal", per100: "365", perServing: "91.25" },
-        { nutrient: "Protein", unit: "g", per100: "32", perServing: "8.00" },
-        { nutrient: "Carbohydrate", unit: "g", per100: "57", perServing: "14.25" },
-        { nutrient: "Sugar (sucrose)", unit: "g", per100: "0", perServing: "0.00" },
-        { nutrient: "Dietary fibre", unit: "g", per100: "2", perServing: "0.50" },
-        { nutrient: "Fat", unit: "g", per100: "1", perServing: "0.25" },
-        { nutrient: "EPA", unit: "mg", per100: "40", perServing: "10" },
-        { nutrient: "DHA", unit: "mg", per100: "200", perServing: "50" },
-      ],
-    },
-    perTin: [
-      { label: "Energy (kcal)", value: "730" },
-      { label: "Protein (g)", value: "64" },
-      { label: "Carbs (g)", value: "114" },
-      { label: "Lipid (g)", value: "02" },
-    ],
-    claims: [
-      "Highest quality soy protein",
-      "32 g of protein per 100 g powder",
-      "Fortified with 26 vitamins, minerals & fibre",
-      "Sugar free",
-    ],
-    directions: [
-      "Take a mug of lukewarm or cold milk (150 ml)",
-      "Add 2 scoops of Re-Pro powder (25 g)",
-      "Upon reconstitution, stir well until dissolved and use promptly",
-    ],
-    suggestedUse: "For management of dietary requirement in acute illness and general weakness.",
-  },
-  {
     id: "calcinine",
-    index: "07",
+    index: "05",
     name: "Calcinine",
     category: "Calcium Carbonate, Vitamin D3, Magnesium, Cyanocobalamin & Zinc Sulphate Tablets",
     molecule: "calcium",
@@ -492,7 +385,7 @@ export const productFamilies: ProductFamily[] = [
   },
   {
     id: "recal-m",
-    index: "08",
+    index: "06",
     name: "Recal-M",
     strapline: "Calcium from the natural source",
     category: "Milk Calcium, Vitamin D3 & Zinc Sulphate Tablets",
@@ -523,7 +416,7 @@ export const productFamilies: ProductFamily[] = [
   },
   {
     id: "cardivit",
-    index: "09",
+    index: "07",
     name: "Cardivit",
     strapline: "Cardivit for healthy life",
     category: "Green Tea, Grape Seed, Sitosterol, Omega 3, Zinc & Selenium Tablets",
@@ -555,7 +448,7 @@ export const productFamilies: ProductFamily[] = [
   },
   {
     id: "recure",
-    index: "10",
+    index: "08",
     name: "Recure",
     category: "Curcumin Ext., Lycopene & Piperine Syrup",
     molecule: "metabolic",
@@ -593,7 +486,7 @@ export const productFamilies: ProductFamily[] = [
   },
   {
     id: "gravity-set-bag",
-    index: "11",
+    index: "09",
     name: "BAITONG Gravity Set Bag",
     strapline: "Safety without compromise",
     category: "Continuous enteral feeding set",

@@ -38,18 +38,6 @@ export const brochures: Brochure[] = [
     pages: [spread("progain-peptide-1")],
   },
   {
-    id: "progain-junior",
-    title: "progain junior — Kidz",
-    subject: "Complete Nutrition for Children",
-    pages: [spread("progain-junior-1"), spread("progain-junior-2")],
-  },
-  {
-    id: "re-pro",
-    title: "re-pro",
-    subject: "Assured Protein with Vital Nutrients",
-    pages: [spread("re-pro-1")],
-  },
-  {
     id: "calcinine",
     title: "Calcinine",
     subject: "Calcium, D3, Magnesium, B12 & Zinc",

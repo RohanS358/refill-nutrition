@@ -36,7 +36,7 @@ export const milestones: Milestone[] = [
   {
     year: "Now",
     title: "Deepening the clinical catalogue",
-    body: "Eleven products across enteral nutrition, daily protein, supplementation and enteral delivery — supplied to hospitals and prescribing clinicians across Nepal.",
+    body: "Nine products across enteral nutrition, supplementation and enteral delivery — supplied to hospitals and prescribing clinicians across Nepal.",
     state: "now",
   },
   {
@@ -50,7 +50,7 @@ export const milestones: Milestone[] = [
 /** Company statistics — home chapter 10. Honest numbers only. */
 export const statistics = [
   { value: 2020, label: "Established", format: "year" as const },
-  { value: 11, label: "Products in the catalogue", suffix: "" },
+  { value: 9, label: "Products in the catalogue", suffix: "" },
   { value: 4, label: "Clinical ranges", suffix: "" },
   { value: 6, label: "Domains of expertise", suffix: "" },
   { value: 1, label: "Planned manufacturing facility", suffix: "" },

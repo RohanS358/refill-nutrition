@@ -7,7 +7,7 @@ export async function Footer() {
   const [tagline, motto, email, city, country, coordinates] = await Promise.all([
     text(
       "footer.tagline",
-      "Clinical nutrition, engineered for recovery — from Nepal, for better healthcare outcomes.",
+      "Clinical nutrition, engineered for recovery — for better healthcare outcomes.",
     ),
     text("footer.motto", "Precision is care."),
     text("site.email", site.email),

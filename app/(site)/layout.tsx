@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { TextsProvider } from "@/components/cms/texts-context";
 import { getOverrides } from "@/lib/cms/content";
 import { Footer } from "@/components/site/footer";
+import { BreadcrumbsLd } from "@/components/site/breadcrumbs-ld";
 import { EditBridge } from "@/components/cms/edit-bridge";
 
 
@@ -17,6 +18,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       >
         Skip to content
       </a>
+      <BreadcrumbsLd />
       <SiteHeader />
       <main id="content">{children}</main>
       <Footer />

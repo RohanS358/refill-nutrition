@@ -8,7 +8,7 @@ export const site = {
   /** Brand line from the logo lockup — pairs with the mark, not a page headline. */
   motto: "Supplementing your health",
   description:
-    "Nepali clinical nutrition company: the progain enteral range for ICU, renal, diabetic and paediatric care, plus supplementation and ENFit enteral delivery.",
+    "Clinical nutrition company: the progain enteral range for ICU, renal, diabetic and paediatric care, plus supplementation and ENFit enteral delivery.",
   founded: 2020,
   country: "Nepal",
   city: "Kathmandu",
@@ -51,7 +51,7 @@ export const primaryNav: NavItem[] = [
 export const fullNav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about", hint: "Vision · Mission · Values" },
-  { label: "Products", href: "/products", hint: "Eleven products, four ranges" },
+  { label: "Products", href: "/products", hint: "Nine products, three ranges" },
   { label: "Brochures", href: "/brochures", hint: "The printed literature" },
   { label: "Solutions", href: "/solutions", hint: "Nutrition · Devices" },
   { label: "Research", href: "/research", hint: "Evidence philosophy" },
