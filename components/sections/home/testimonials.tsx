@@ -46,7 +46,7 @@ export async function Testimonials() {
       </Reveal>
 
       {rest.length ? (
-        <ul className="mt-16 grid grid-cols-1 gap-px border border-line-dark bg-line-dark md:mt-24 md:grid-cols-3">
+        <ul className={`mt-16 grid grid-cols-1 gap-px border border-line-dark bg-line-dark md:mt-24 ${rest.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
           {rest.map(({ t, idx }, i) => (
             <Reveal as="li" key={t.id} delay={Math.min(i, 5) * 90} className="flex">
               <figure className="flex w-full flex-col bg-ink-deep p-8 md:p-10">

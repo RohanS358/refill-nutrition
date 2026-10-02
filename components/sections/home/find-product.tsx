@@ -34,7 +34,7 @@ export async function FindProduct() {
       />
 
       <Reveal delay={90} className="mt-16 md:mt-20">
-        <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
           {ranges.map((range) => {
             const count = families.filter((f) => f.range === range.id).length;
             return (

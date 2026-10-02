@@ -70,7 +70,7 @@ export async function GoodToKnow() {
         </Reveal>
 
         {/* Cards */}
-        <ul className="mt-6 grid gap-6 md:grid-cols-3">
+        <ul className="mt-6 grid gap-6 md:grid-cols-2">
           {cards.map((c, j) => {
             const i = j + 1;
             const p = photos[c.photo];

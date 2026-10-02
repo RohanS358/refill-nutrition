@@ -250,7 +250,7 @@ export function ScrollExpand({
         src={src}
         srcSet={srcSet}
         alt={alt}
-        loading="lazy"
+        loading="eager"
         draggable={false}
       />
     );
