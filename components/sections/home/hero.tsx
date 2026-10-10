@@ -80,7 +80,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           className="!absolute inset-x-0 bottom-0 z-0 h-[22rem] sm:h-[26rem] lg:top-[6%] lg:bottom-[4%] lg:left-[60%] lg:right-[6%] lg:h-auto"
         />
 
-        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[24rem] sm:pt-28 sm:pb-[28rem] lg:min-h-[100svh] lg:pb-10 lg:pt-28 lg:[&>*]:w-full lg:[&>*]:max-w-[41vw]">
+        <div className="pointer-events-none relative z-20 w-full px-5 md:px-12 lg:px-[clamp(3rem,4.5vw,8rem)] flex flex-col items-start pt-24 pb-[24rem] sm:pt-28 sm:pb-[28rem] lg:min-h-[100svh] lg:pb-10 lg:pt-28 lg:[&>*]:w-full lg:[&>*]:max-w-[40vw]">
           {/* Message sits in the vertical middle of the hero: equal flex space above and below. */}
           <div className="hidden lg:block lg:flex-1" aria-hidden="true" />
           <div className="py-8">
@@ -104,7 +104,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </div>
 
           {/* Bottom half: everything else. */}
-          <div className="flex flex-col items-start pb-4 lg:flex-1 lg:justify-between lg:gap-6">
+          <div className="flex flex-col items-start pb-4 lg:flex-1 lg:justify-start lg:gap-8">
          
 
           <p
