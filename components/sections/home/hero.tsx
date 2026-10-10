@@ -80,11 +80,11 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           className="!absolute inset-x-0 bottom-0 z-0 h-[22rem] sm:h-[26rem] lg:top-[6%] lg:bottom-[4%] lg:left-[60%] lg:right-[6%] lg:h-auto"
         />
 
-        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[24rem] sm:pt-28 sm:pb-[28rem] lg:min-h-[100svh] lg:pb-10 lg:pt-28 lg:[&>*]:w-full lg:[&>*]:max-w-[min(38vw,34rem)]">
+        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[24rem] sm:pt-28 sm:pb-[28rem] lg:min-h-[100svh] lg:pb-10 lg:pt-28 lg:[&>*]:w-full lg:[&>*]:max-w-[41vw]">
           {/* Message sits in the vertical middle of the hero: equal flex space above and below. */}
           <div className="hidden lg:block lg:flex-1" aria-hidden="true" />
           <div className="py-8">
-          <h1 className="text-balance text-[clamp(3rem,5.4vw,5.75rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
+          <h1 className="text-balance text-[clamp(3rem,9vw,6rem)] lg:text-[clamp(3.5rem,6.3vw,9rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
             <span className="animate-rise-in block" data-cms="home.hero.line1">
               {copy.line1}
             </span>
@@ -104,11 +104,11 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </div>
 
           {/* Bottom half: everything else. */}
-          <div className="flex flex-col items-start pb-4 lg:flex-1 lg:justify-start">
+          <div className="flex flex-col items-start pb-4 lg:flex-1 lg:justify-between lg:gap-6">
          
 
           <p
-            className="animate-rise-in mt-5 max-w-md text-[1.05rem] leading-relaxed text-muted-foreground sm:text-lead sm:mt-7"
+            className="animate-rise-in mt-5 max-w-xl text-[1.1rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-[1.35rem] lg:max-w-none lg:text-[clamp(1.25rem,1.7vw,2rem)]"
             style={{ animationDelay: "240ms" }}
             data-cms="home.hero.lead"
           >
