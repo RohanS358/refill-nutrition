@@ -63,28 +63,28 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
   return (
     <section
       aria-label="Introduction"
-      className="relative isolate overflow-hidden bg-background"
+      className="relative isolate overflow-hidden bg-mint/40"
     >
       {/* Top band: the copy and the drifting wall. The testimonial strip sits
           below it, outside the wall's box. */}
       <div className="relative">
         
-        <ProductRotator
-          items={packs}
-          className="!absolute inset-x-0 bottom-0 z-0 h-[22rem] sm:h-[26rem] lg:top-[6%] lg:bottom-[4%] lg:left-[57%] lg:right-[6%] lg:h-auto"
+        {/* White product stage, cut from the copy by a diagonal. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 z-0 h-[25rem] bg-white [clip-path:polygon(0_14%,100%_0,100%_100%,0_100%)] sm:h-[29rem] lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[54%] lg:[clip-path:polygon(22%_0,100%_0,100%_100%,0_100%)]"
         />
 
-        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[24rem] sm:pt-28 sm:pb-[28rem] lg:min-h-[100svh] lg:justify-center lg:pb-10">
-          <p className="animate-rise-in pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3.5 py-1.5 text-xs font-medium sm:px-4 sm:py-2 sm:text-sm shadow-sm backdrop-blur">
-            <Heart
-              size={15}
-              className="fill-coral text-coral"
-              aria-hidden="true"
-            />
-            <T k="home.hero.badge">{`Trusted by hospitals`}</T>
-          </p>
+        <ProductRotator
+          items={packs}
+          className="!absolute inset-x-0 bottom-0 z-0 h-[22rem] sm:h-[26rem] lg:top-[6%] lg:bottom-[4%] lg:left-[60%] lg:right-[6%] lg:h-auto"
+        />
 
-          <h1 className="mt-5 max-w-[11ch] sm:mt-7 text-balance text-[clamp(2.75rem,5.4vw,5.5rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
+        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[24rem] sm:pt-28 sm:pb-[28rem] lg:min-h-[100svh] lg:pb-10 lg:pt-28 lg:[&>*]:w-full lg:[&>*]:max-w-[min(38vw,34rem)]">
+          {/* Message sits in the vertical middle of the hero: equal flex space above and below. */}
+          <div className="hidden lg:block lg:flex-1" aria-hidden="true" />
+          <div className="py-8">
+          <h1 className="text-balance text-[clamp(3rem,5.4vw,5.75rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
             <span className="animate-rise-in block" data-cms="home.hero.line1">
               {copy.line1}
             </span>
@@ -93,7 +93,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
               style={{ animationDelay: "120ms" }}
             >
               {/* Highlighter stroke that follows the words across a wrap. */}
-              <span className="box-decoration-clone bg-[linear-gradient(transparent_60%,var(--sun)_60%,var(--sun)_90%,transparent_90%)] text-primary">
+              <span className="font-[family-name:var(--font-caveat),cursive] text-[1.3em] font-bold tracking-normal box-decoration-clone bg-[linear-gradient(transparent_60%,var(--sun)_60%,var(--sun)_90%,transparent_90%)] text-primary">
                 <span data-cms="home.hero.line2">{copy.line2}</span>
                 <span aria-hidden="true" className="text-foreground">
                   .
@@ -101,9 +101,14 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
               </span>
             </span>
           </h1>
+          </div>
+
+          {/* Bottom half: everything else. */}
+          <div className="flex flex-col items-start pb-4 lg:flex-1 lg:justify-start">
+         
 
           <p
-            className="animate-rise-in mt-5 max-w-lg text-[1.05rem] leading-relaxed text-muted-foreground sm:text-lead sm:mt-7"
+            className="animate-rise-in mt-5 max-w-md text-[1.05rem] leading-relaxed text-muted-foreground sm:text-lead sm:mt-7"
             style={{ animationDelay: "240ms" }}
             data-cms="home.hero.lead"
           >
@@ -135,7 +140,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </div>
 
           <div
-            className="animate-rise-in mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 sm:mt-10 sm:gap-y-4"
+            className="animate-rise-in mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 sm:mt-10 sm:gap-y-4"
             style={{ animationDelay: "400ms" }}
           >
             <div className="flex items-center gap-3">
@@ -177,6 +182,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           >
             <HeroQuote />
           </div>
+                  </div>
         </div>
       </div>
 

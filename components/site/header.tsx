@@ -141,7 +141,7 @@ export function Header({
             ? "border-b border-border bg-background text-foreground shadow-2xl shadow-ink-deep/10"
             : scrolled
               ? "border-b border-border bg-background/85 text-foreground backdrop-blur-md"
-              : "border-b border-transparent bg-transparent",
+              : "border-b border-transparent bg-white",
           darkTop && "text-background",
         )}
       >

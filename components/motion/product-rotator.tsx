@@ -39,7 +39,7 @@ export function ProductRotator({ items, interval = 4000, className = "" }: { ite
           <div
             key={p.href}
             aria-hidden="true"
-            className={`absolute left-1/2 top-1/2 aspect-square h-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl transition-opacity duration-700 ${TONES[n % TONES.length]} ${n === i ? "!opacity-35" : ""}`}
+            className={`absolute left-1/2 top-1/2 aspect-square w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl transition-opacity duration-700 ${TONES[n % TONES.length]} ${n === i ? "!opacity-35" : ""}`}
           />
         ))}
         {items.map((p, n) => (

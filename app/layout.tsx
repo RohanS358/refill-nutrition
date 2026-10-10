@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { jakarta } from "./fonts";
+import { jakarta, caveat } from "./fonts";
 import { site } from "@/lib/site";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { JsonLd } from "@/components/site/json-ld";
@@ -63,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jakarta.variable} font-sans antialiased`}>
+      <body className={`${jakarta.variable} ${caveat.variable} font-sans antialiased`}>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <Analytics />
