@@ -27,7 +27,7 @@ export async function CtaBand({
   ]);
 
   return (
-    <section aria-labelledby="cta-heading" className="border-t border-border bg-background">
+    <section aria-labelledby="cta-heading" className="border-t border-border bg-sun/35">
       <div className="shell py-24 md:py-32 lg:py-40">
         <Reveal>
           <Eyebrow>

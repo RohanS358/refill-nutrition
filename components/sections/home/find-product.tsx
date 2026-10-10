@@ -24,7 +24,7 @@ export async function FindProduct() {
   const topIndications = applications(families).slice(0, 12);
 
   return (
-    <Section id="find">
+    <Section id="find" className="bg-mint/45">
       <SectionHeading
         index="02"
         ck="home.find"

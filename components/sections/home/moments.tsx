@@ -20,7 +20,7 @@ export async function Moments() {
   );
 
   return (
-    <section aria-labelledby="moments" className="bg-background">
+    <section aria-labelledby="moments" className="bg-sky/45">
       <div className="shell py-20 md:py-28">
         <Reveal>
           <p className="inline-flex items-center gap-2 rounded-full bg-blush px-4 py-1.5 text-sm font-semibold text-ink-deep">

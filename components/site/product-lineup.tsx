@@ -20,9 +20,12 @@ export function ProductLineup({
   products,
   /** Above the fold: animate on mount rather than waiting for a scroll. */
   eager = false,
+  compact = false,
 }: {
   products: ProductFamily[];
   eager?: boolean;
+  /** A slim strip rather than a full group shot. */
+  compact?: boolean;
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
   const reduced = useReducedMotion();
@@ -72,7 +75,7 @@ export function ProductLineup({
               onPointerEnter={() => setHovered(p.id)}
               // Shorter packs stack in front; the hovered one comes to the top.
               style={{ zIndex: active ? 40 : Math.round((1 - scale) * 20) + 1 }}
-              className="group relative w-[26vw] shrink-0 sm:-mx-[1.6%] sm:w-auto sm:min-w-0 sm:flex-1"
+              className={cn("group relative w-[26vw] shrink-0 sm:w-auto sm:min-w-0 sm:flex-1", compact ? "sm:-mx-[2.6%]" : "sm:-mx-[1.6%]")}
             >
               <Link
                 href={`/products/${p.id}`}
@@ -81,7 +84,7 @@ export function ProductLineup({
                 aria-label={`${p.name} — ${p.category}`}
                 className="block focus-visible:outline-2 focus-visible:outline-offset-4"
               >
-                <span className="flex h-[clamp(175px,26vh,380px)] items-end justify-center">
+                <span className={cn("flex items-end justify-center", compact ? "h-[clamp(110px,17vh,170px)]" : "h-[clamp(175px,26vh,380px)]")}>
                   <Image
                     src={p.image!}
                     alt={p.name}
@@ -112,7 +115,7 @@ export function ProductLineup({
       {/* Reserved height so hovering never shifts the layout below. Empty
           reads as dead space, so the resting state invites the interaction
           instead of leaving a hole. */}
-      <div className="mt-3 min-h-[3.5rem] text-center sm:mt-4 sm:min-h-[4.25rem]">
+      <div className={cn("mt-3 text-center sm:mt-4", compact ? "min-h-[3rem]" : "min-h-[3.5rem] sm:min-h-[4.25rem]")}>
         {focus ? (
           <>
             <p className="text-title text-[1.15rem]">{focus.name}</p>

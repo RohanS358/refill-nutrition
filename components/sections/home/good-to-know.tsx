@@ -24,7 +24,7 @@ export async function GoodToKnow() {
   const k = (i: number, field: string) => `col:banners.${i}.${field}`;
 
   return (
-    <section aria-labelledby="good-to-know" className="bg-background">
+    <section aria-labelledby="good-to-know" className="bg-card">
       <div className="shell py-20 md:py-28">
         <Reveal>
           <h2 id="good-to-know" className="text-display max-w-3xl text-balance">

@@ -170,8 +170,9 @@ export function ScrollExpand({
       if (!c.enabled) return 1;
       const span = stageH * Math.max(0.01, c.scrollDistance);
       if (c.useWindowScroll) {
+        // Grows as the section scrolls into view; full just before it pins.
         const top = track.getBoundingClientRect().top;
-        return clamp(-top / span, 0, 1);
+        return clamp((stageH - top) / (stageH * 0.85), 0, 1);
       }
       return clamp(root.scrollTop / span, 0, 1);
     };

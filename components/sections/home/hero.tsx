@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, Heart } from "lucide-react";
-import { DriftWall } from "@/components/motion/drift-wall";
+import { ProductRotator } from "@/components/motion/product-rotator";
 import { collection, text } from "@/lib/cms/content";
 import { productFamilies, ranges as rangeDefaults } from "@/lib/products";
 import { allPhotos, unsplash } from "@/lib/photos";
@@ -9,10 +9,8 @@ import { HeroQuote } from "./hero-quote";
 import { site } from "@/lib/site";
 import { heroDefaults, type HeroCopy } from "./hero-copy";
 
-const WALL_COLUMNS = 4;
-
 /**
- * Chapter 01 — the whole range drifts across the page; the promise sits on the
+ * Chapter 01 — the range shows one pack at a time; the promise sits on the
  * left. No panels, no fills: packs float on the page itself.
  */
 export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
@@ -41,11 +39,6 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
       title: p.name,
       href: `/products/${p.id}`,
     }));
-  // DriftWall deals items round-robin (item i → column i % columns). With 11
-  // packs over 4 columns the deal never lines up, so two passes give each
-  // column ~6 different packs — mixed, and short enough to tilt cleanly.
-  const wallItems = [...packs, ...packs];
-
   const chips = [
     {
       value: String(families.length),
@@ -75,35 +68,13 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
       {/* Top band: the copy and the drifting wall. The testimonial strip sits
           below it, outside the wall's box. */}
       <div className="relative">
-        {/* Full-width drifting wall of packs, weighted right of the copy. */}
-        <DriftWall
-          items={wallItems}
-          columns={WALL_COLUMNS}
-          tileWidth={150}
-          tileHeight={200}
-          gap={26}
-          radius={0}
-          tilt={10}
-          turn={-6}
-          speed={30}
-          parallax={0.5}
-          lift={48}
-          fade={0.35}
-          dim={0.95}
-          imageFit="contain"
-          fit
-          tileBg="transparent"
-          overlayColor="transparent"
-          className="!absolute inset-x-0 bottom-0 z-0 !h-[20rem] !w-auto sm:!h-[26rem] lg:!h-auto lg:inset-y-[4%] lg:left-[42%] lg:right-[2%]"
+        
+        <ProductRotator
+          items={packs}
+          className="!absolute inset-x-0 bottom-0 z-0 h-[22rem] sm:h-[26rem] lg:top-[6%] lg:bottom-[4%] lg:left-[57%] lg:right-[6%] lg:h-auto"
         />
 
-        {/* Page-coloured fade so packs passing behind the copy don't fight it. */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(to_right,var(--background)_0%,var(--background)_36%,transparent_52%)] max-lg:hidden"
-        />
-
-        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[20rem] sm:pt-28 sm:pb-[27rem] lg:min-h-[100svh] lg:justify-center lg:pb-10">
+        <div className="shell pointer-events-none relative z-20 flex flex-col items-start pt-24 pb-[24rem] sm:pt-28 sm:pb-[28rem] lg:min-h-[100svh] lg:justify-center lg:pb-10">
           <p className="animate-rise-in pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3.5 py-1.5 text-xs font-medium sm:px-4 sm:py-2 sm:text-sm shadow-sm backdrop-blur">
             <Heart
               size={15}
@@ -208,6 +179,7 @@ export async function Hero({ copy = heroDefaults }: { copy?: HeroCopy }) {
           </div>
         </div>
       </div>
+
     </section>
   );
 }

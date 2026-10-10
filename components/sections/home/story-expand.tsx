@@ -16,6 +16,8 @@ export async function StoryExpand() {
     <section aria-label="Our purpose" className="bg-ink-deep">
       <ScrollExpand
         useWindowScroll
+        scrollDistance={0}
+        holdDistance={0.3}
         src={unsplash(img.id, 1600)}
         srcSet={`${unsplash(img.id, 1000)} 1000w, ${unsplash(img.id, 1600)} 1600w, ${unsplash(img.id, 2400)} 2400w`}
         alt={img.alt}
