@@ -1,0 +1,91 @@
+{
+  "app": {
+    "[project]/app/(site)/about/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/careers/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/contact/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/manufacturing/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/products/[id]/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/products/compare/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/products/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/research/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/solutions/critical-care-nutrition/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/solutions/medical-devices/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/(site)/solutions/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/_not-found/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/(panel)/editor/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/(panel)/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/(panel)/photos/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/(panel)/products/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/(panel)/settings/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/(panel)/team/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/(panel)/testimonials/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/app/admin/login/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

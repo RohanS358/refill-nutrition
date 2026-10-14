@@ -1,0 +1,5 @@
+:HL["/_next/static/chunks/0e4b1e3f79345560.css","style"]
+:HL["/_next/static/chunks/433b4d55552f90d5.css","style"]
+:HL["/_next/static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/a85fe84266768609-s.p.e658778d.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"kITHJ6P9uiPiIVXMu3xDQ","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(site)","paramType":null,"paramKey":"(site)","hasRuntimePrefetch":false,"slots":{"children":{"name":"products","paramType":null,"paramKey":"products","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"progain-hp","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

@@ -1,0 +1,11 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/app/admin/(panel)/team/page": [
+      "static/media/PlusJakartaSans_VariableFont_wght-s.p.79c1997b.ttf",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}

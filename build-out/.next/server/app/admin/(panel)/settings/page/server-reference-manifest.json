@@ -1,0 +1,170 @@
+{
+  "node": {
+    "007d887536780276bd8d97b6116af8f0db8cff9ee2": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "resetAllContent",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "resetAllContent",
+      "filename": "app/admin/actions.ts"
+    },
+    "009ced3488d3e1c25574d6a5f112b23d94d2b9e2e2": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "logout",
+      "filename": "app/admin/actions.ts"
+    },
+    "40605569f1b82e1237d93e8eee7ee89352fdaabfc3": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "saveProducts",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "saveProducts",
+      "filename": "app/admin/actions.ts"
+    },
+    "4066de9f5ab87ba64c93a46262e2d5472f90659e1a": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "savePhotos",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "savePhotos",
+      "filename": "app/admin/actions.ts"
+    },
+    "406a49264c9fc6953362c0f54c56bd2040e530537f": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "saveTexts",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "saveTexts",
+      "filename": "app/admin/actions.ts"
+    },
+    "4081f0839627420aca9b88fb0adfe244cc9ce30f78": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "uploadImage",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "uploadImage",
+      "filename": "app/admin/actions.ts"
+    },
+    "40a9bc8d99e8d2ffa9cead893f87c05979dca761d2": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "saveSettings",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "saveSettings",
+      "filename": "app/admin/actions.ts"
+    },
+    "40c56a504f73f422ba857648c3c389e60303ab888b": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "saveTeam",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "saveTeam",
+      "filename": "app/admin/actions.ts"
+    },
+    "40c8ff496bbd5200299a26d04371fde386a026366e": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "removeImage",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "removeImage",
+      "filename": "app/admin/actions.ts"
+    },
+    "40ca65c274dadefa6c2e99725e0eb67696d01302e7": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "saveTestimonials",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "saveTestimonials",
+      "filename": "app/admin/actions.ts"
+    },
+    "60caaed4b8817952ef39153e27459badace9971d4e": {
+      "workers": {
+        "app/admin/(panel)/settings/page": {
+          "moduleId": 13628,
+          "async": false,
+          "exportedName": "login",
+          "filename": "app/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/(panel)/settings/page": "rsc"
+      },
+      "exportedName": "login",
+      "filename": "app/admin/actions.ts"
+    }
+  },
+  "edge": {}
+}

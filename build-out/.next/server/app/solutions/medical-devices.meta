@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(site)/layout,_N_T_/(site)/solutions/layout,_N_T_/(site)/solutions/medical-devices/layout,_N_T_/(site)/solutions/medical-devices/page,_N_T_/solutions/medical-devices"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KHNpdGUp/solutions/medical-devices/__PAGE__",
+    "/!KHNpdGUp/solutions/medical-devices",
+    "/!KHNpdGUp/solutions",
+    "/!KHNpdGUp",
+    "/_index",
+    "/_head"
+  ]
+}

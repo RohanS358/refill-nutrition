@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://refillenterprises.com.np/sitemap.xml
