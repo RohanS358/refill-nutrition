@@ -7,7 +7,6 @@ const editableRoutes = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Compare products", href: "/products/compare" },
-  { label: "Brochures", href: "/brochures" },
   { label: "Solutions", href: "/solutions" },
   { label: "Critical Care Nutrition", href: "/solutions/critical-care-nutrition" },
   { label: "Medical Devices", href: "/solutions/medical-devices" },

@@ -41,7 +41,6 @@ export const primaryNav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
-  { label: "Brochures", href: "/brochures" },
   { label: "Solutions", href: "/solutions" },
   { label: "Research", href: "/research" },
   { label: "Manufacturing", href: "/manufacturing" },
@@ -52,7 +51,6 @@ export const fullNav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about", hint: "Vision · Mission · Values" },
   { label: "Products", href: "/products", hint: "Nine products, three ranges" },
-  { label: "Brochures", href: "/brochures", hint: "The printed literature" },
   { label: "Solutions", href: "/solutions", hint: "Nutrition · Devices" },
   { label: "Research", href: "/research", hint: "Evidence philosophy" },
   { label: "Manufacturing", href: "/manufacturing", hint: "The facility vision" },
@@ -79,7 +77,6 @@ export const footerColumns: { heading: string; items: NavItem[] }[] = [
     items: [
       { label: "Products", href: "/products" },
       { label: "Compare products", href: "/products/compare" },
-      { label: "Brochures", href: "/brochures" },
       { label: "Critical Care Nutrition", href: "/solutions/critical-care-nutrition" },
       { label: "Medical Devices", href: "/solutions/medical-devices" },
     ],

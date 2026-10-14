@@ -8,7 +8,6 @@ const pages = [
   "/about",
   "/products",
   "/products/compare",
-  "/brochures",
   "/solutions",
   "/solutions/critical-care-nutrition",
   "/solutions/medical-devices",

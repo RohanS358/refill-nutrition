@@ -23,7 +23,6 @@ import {
 } from "@/lib/products";
 import { milestones, statistics } from "@/lib/timeline";
 import { solutions } from "@/lib/solutions";
-import { brochures, type Brochure } from "@/lib/brochures";
 import { team, type TeamMember } from "@/lib/team";
 import { testimonials, type Testimonial } from "@/lib/testimonials";
 import { banners } from "@/lib/banners";
@@ -43,7 +42,6 @@ const collectionDefaults: Record<string, unknown> = {
   solutions,
   evidence: evidenceDecks,
   ranges,
-  brochures,
   team,
   testimonials,
   banners,
@@ -185,23 +183,6 @@ export async function uploadImage(formData: FormData): Promise<
 export async function removeImage(url: string): Promise<void> {
   await assertAdmin();
   await deleteUpload(url);
-  revalidateSite();
-}
-
-/** Replace the brochure shelf (admin brochures CRUD). */
-export async function saveBrochures(items: Brochure[]): Promise<void> {
-  await assertAdmin();
-  const cleaned = items
-    .filter((b) => b.title.trim().length > 0)
-    .map((b) => ({
-      ...b,
-      id: b.id || slugify(b.title),
-      pages: b.pages.map((p) => p.trim()).filter(Boolean),
-    }))
-    .filter((b) => b.pages.length > 0);
-  const overrides = await readOverrides();
-  overrides.collections.brochures = cleaned;
-  await writeOverrides(overrides);
   revalidateSite();
 }
 

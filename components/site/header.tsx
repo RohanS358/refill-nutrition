@@ -290,12 +290,6 @@ export function Header({
                 >
                   <Tc k="nav.mega.compare">Compare products</Tc>
                 </Link>
-                <Link
-                  href="/brochures"
-                  className="inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition hover:border-foreground"
-                >
-                  <Tc k="nav.mega.brochures">Brochures</Tc>
-                </Link>
               </div>
             </div>
           </div>
